@@ -26,13 +26,12 @@
         <section>
             <header><h2>Navigasjonsstruktur</h2></header>
             <p>Vi har valgt å bruke en clique-struktur som navigasjonsstruktur på nettsiden. Det skal være mulig å komme seg direkte fra forsiden til samtlige andre sider inkludert i nettsiden. Linkene til de andre sidene vil alltid være tilgjengelige i navigasjonsbaren, uavhengig av hvilken av sidene man er på. Vi har valgt denne navigasjonsstrukturen for å gjøre nettsiden så brukervennlig og oversiktlig som mulig. Dette er spesielt viktig fordi det er svært sannsynlig at brukerne av nettsiden for eksempel tilhører forskjellige aldersgrupper, og dermed vil ha ulik kompetanse og erfaring med å bruke nettsider. En annen årsak til at vi ønsker at alle sidene alltid skal være tilgjengelige er at brukerne av en nettside som denne sannsynligvis har en bestemt side de ønsker å finne (for eksempel meny eller åpningstider). Det er derfor hensiktsmessig at alle sidene er tilgjengelig uavhengig av hvor på nettsiden brukeren befinner seg. For å unngå å gjenta kode, skal vi bruke JavaScript for å hente navigasjonsbaren inn i alle HTML-dokumentene.</p>
-           
         </section>
         <section>
             <header><h2>Sidens layout og utseende</h2></header>
            <p> Stilen til nettsiden som vil være gjeldende for alle sidene: </p> 
             <ul>
-            <li>Grid: <br>
+                <li>Grid: <br>
                Vi har valgt å bruke grid for å designe nettsiden. Dette vil gjøre det enklere for oss å plassere elementer på siden, samt at å gjøre nettsiden responsiv vil bli lettere.
                </li>
                <li>Header: <br>
@@ -72,86 +71,76 @@
                     På bordbestillingssiden kan brukeren bestille bord hos kafeen. Siden skal inneholde et skjema med felter som må fylles inn. Brukeren skriver inn ønsket dato og klokkeslett, navn, antall personer og eventuelle kommentarer. Alle felter unntatt “eventuelle kommentarer” skal være markert med en stjerne. Dersom disse ikke er fylt ut, vil det komme opp en feilmelding, og skjemaet blir ikke sendt inn. Dersom brukeren skriver inn en ugyldig dato vil heller ikke skjemaet sendes. Det skal heller ikke være mulig å skrive inn et negativt antall personer. Hvis brukeren ønsker å bestille bord for mer enn ti personer, vil vedkommende få beskjed om å ringe kaféen for å bestille. Det vil informeres om dette før skjemaet. Før skjemaet skal det også være en kort beskrivelse av skjemaet og en forklaring på hva stjernene betyr. Når brukeren har sendt inn skjemaet vil nettsiden fortelle brukeren at bestillingen har blitt sendt. Fordi vi ikke skal bruke databaser, vil ikke informasjonen lagres.
                 </li>
             </ol>
-            </section>
+        </section>
         <section>
             <header><h2><strong>Minst fire JavaScript-applikasjoner</strong></h2></header>
             <ol>
-                <li><strong>Roll-down meny:</strong>
-                    <ul>
-                        <li>
-                            Vi skal bruke javascript til å implementere en roll-down meny, som skal ligge øverst i hjørnet i headeren når siden er mindre enn 480px. Vi bruker ikke en roll-down meny når siden er større, fordi det er mer oversiktlig å la emnene stå i headeren når siden er stor nok til det. Spesielt for eldre er det lettere, da de ikke nødvendigvis vet hvor de skal lete for å finne emnene. Vi lar ikke emnene stå i headeren når siden er mindre, siden det kan blir veldig rotete.
-                        </li>
-                    </ul>
+                <li><strong>Roll-down meny:</strong></li>
+                <ul>
+                    <li>
+                        Vi skal bruke javascript til å implementere en roll-down meny, som skal ligge øverst i hjørnet i headeren når siden er mindre enn 480px. Vi bruker ikke en roll-down meny når siden er større, fordi det er mer oversiktlig å la emnene stå i headeren når siden er stor nok til det. Spesielt for eldre er det lettere, da de ikke nødvendigvis vet hvor de skal lete for å finne emnene. Vi lar ikke emnene stå i headeren når siden er mindre, siden det kan blir veldig rotete.
                     </li>
-                    
-                <li><strong>Bordbestillings-reguering:</strong><br>
-                    <ul>
-                        <li>
-                            Vi har en egen side for bordbestilling, som skal inkludere input elementer for dato og klokkeslett, navn, antall personer og eventuelle kommentarer. Vi inkludere også at noen input elementer må være fylt ut for å kunne sende dokumentet. Dette vil være alle utenom eventuelle kommentarer.. Under antall personer skal det ikke være mulig å bestille bord for mindre enn 0 eller flere enn 8. Da skal det komme opp et varsel om at de må ringe og avtale med kafeen. Det skal heller ikke være mulig å bestille bord til utenom åpningstiden, som kommer til å avhenge av hvilken dag det er.
-                        </li>
-                    </ul>
-                   </li>
-                <li><strong>Bordbestillings-innsending:</strong><br>
-                    <ul>
-                        <li>
-                            Siden vi ikke skal bruke database, vil det kun komme opp en varsel på siden som sier at du har sendt inn en bestilling, men vi sender den ikke noe sted. Dette skal også implementeres med javascript. Der skal noe av dataen man puttet inn i skjemaet vises som en bekreftelse på at det var det du la inn og er riktig. 
-                        </li>
-                    </ul>
-                </li>
-                <li><strong>Bildekarusell</strong><br>
-                    <ul>
-                        <li>På forsiden til nettsiden skal det øverst på siden ligge en bildekarusell. Denne karusellen skal vise litt av det kafeen server o.l. Den skal skifte bilde automatisk etter 6 sekunder, og nye bildet skal “skyve” det forrige bildet ut av rammen. Det skal også være mulig å bytte bildet selv ved å trykke på piler som ligger på bildet, til høyre og venstre. Hvis skjermen er over 480px så kan man trykke på et bilde i bildekarusellen, og bildet vil bli større.</li>
-                    </ul>
-                </li>
+                </ul>                    
+                <li><strong>Bordbestillings-reguering:</strong></li><br>
+                <ul>
+                    <li>
+                        Vi har en egen side for bordbestilling, som skal inkludere input elementer for dato og klokkeslett, navn, antall personer og eventuelle kommentarer. Vi inkludere også at noen input elementer må være fylt ut for å kunne sende dokumentet. Dette vil være alle utenom eventuelle kommentarer.. Under antall personer skal det ikke være mulig å bestille bord for mindre enn 0 eller flere enn 8. Da skal det komme opp et varsel om at de må ringe og avtale med kafeen. Det skal heller ikke være mulig å bestille bord til utenom åpningstiden, som kommer til å avhenge av hvilken dag det er.
+                    </li>
+                </ul>
+                <li><strong>Bordbestillings-innsending:</strong></li><br>
+                <ul>
+                    <li>
+                        Siden vi ikke skal bruke database, vil det kun komme opp en varsel på siden som sier at du har sendt inn en bestilling, men vi sender den ikke noe sted. Dette skal også implementeres med javascript. Der skal noe av dataen man puttet inn i skjemaet vises som en bekreftelse på at det var det du la inn og er riktig. 
+                    </li>
+                </ul>
+                <li><strong>Bildekarusell</strong></li><br>
+                <ul>
+                    <li>På forsiden til nettsiden skal det øverst på siden ligge en bildekarusell. Denne karusellen skal vise litt av det kafeen server o.l. Den skal skifte bilde automatisk etter 6 sekunder, og nye bildet skal “skyve” det forrige bildet ut av rammen. Det skal også være mulig å bytte bildet selv ved å trykke på piler som ligger på bildet, til høyre og venstre. Hvis skjermen er over 480px så kan man trykke på et bilde i bildekarusellen, og bildet vil bli større.</li>
+                </ul>
             </ol>
         </section>
         <section>
             <header><h2><strong>Plan</strong></h2></header>
-           <p> Her vil det være en oversikt over alle filene vi kommer til å bruke og en oversikt over hvem som har ansvaret for de forskjellige tingene. Det vil være tidsfrister for hva som må være ferdig når. Den som er satt opp med ansvaret vil ikke være den som skal gjøre alt, men den som har hovedansvaret for den delen. Alle skal hjelpe til der det trengs, og det er viktig å hjelpe hverandre og bistå med motivasjon og kunnskap. P3 må være ferdig en stund før 5.November, slik at testing og P4 kan gjøres ferdig.  25.Oktober er fristen for at p# skal være ferdig internt i gruppa. Dette fører til at HTML filene må være ferdig onsdag 14.oktober, slik at Javaskript kan ha alt ferdig og koble sammen det en trenger. </p>
-        <br><strong>Filer</strong>
-        <ul>
-            <li>felles.html</li>
-            <li>forside.html</li>
-            <li>meny.html</li>
-            <li>info.html</li>
-            <li>bestilling.html</li>
-            <li class="understrek">images/
+            <p> Her vil det være en oversikt over alle filene vi kommer til å bruke og en oversikt over hvem som har ansvaret for de forskjellige tingene. Det vil være tidsfrister for hva som må være ferdig når. Den som er satt opp med ansvaret vil ikke være den som skal gjøre alt, men den som har hovedansvaret for den delen. Alle skal hjelpe til der det trengs, og det er viktig å hjelpe hverandre og bistå med motivasjon og kunnskap. P3 må være ferdig en stund før 5.November, slik at testing og P4 kan gjøres ferdig.  25.Oktober er fristen for at p# skal være ferdig internt i gruppa. Dette fører til at HTML filene må være ferdig onsdag 14.oktober, slik at Javaskript kan ha alt ferdig og koble sammen det en trenger. </p>
+            <br><strong>Filer</strong>
+            <ul>
+                <li>felles.html</li>
+                <li>forside.html</li>
+                <li>meny.html</li>
+                <li>info.html</li>
+                <li>bestilling.html</li>
+                <li class="understrek">images</li>
                 <ul> 
                     <li>logo.png</li>
                     <li>navigasjonsstruktur.png</li>
-                    <li class="understrek">bildekarusell/ (her skal bildene til bildekarusellen ligge)
-                        <ul>
-                            <li>bildeavkafe.jpg</li>
-                            <li>matrett1.jpg</li>
-                        </ul>
-                    </li>  
-                </ul>
-            </li>
-            <li>ukasrett.jpg</li>
-            <li>nyhet1.jpg</li>
-            <li>nyhet2.jpg</li>
-            <li>twitter.png</li>
-            <li>facebook.png</li>
-            <li>instagram.png</li>
-            <li>snapchat.png</li>
-            <li class="understrek">css/
+                    <li>ukasrett.jpg</li>
+                    <li>nyhet1.jpg</li>
+                    <li>nyhet2.jpg</li>
+                    <li>twitter.png</li>
+                    <li>facebook.png</li>
+                    <li>instagram.png</li>
+                    <li>snapchat.png</li>
+                    <li class="understrek">bildekarusell/ (her skal bildene til bildekarusellen ligge)</li>
+                    <ul>
+                        <li>bildeavkafe.jpg</li>
+                        <li>matrett1.jpg</li>
+                    </ul>  
+                </ul>                 
+                <li class="understrek">CSS</li>
                 <ul>
                     <li>info.css</li>
                     <li>forside.css</li>
                     <li>meny.css</li>
                     <li>style.css</li>
                     <li>bestilling.css</li>
+                </ul>                
+                <li class="understrek">script</li>
+                <ul>
+                    <li>bildekarusell.js</li>
+                    <li>rolldown.js</li>
+                    <li>bordbestilling.js</li>
                 </ul>
-            </li>
-               
-        <li class="understrek">script/
-        <ul>
-            <li>bildekarusell.js</li>
-            <li>rolldown.js</li>
-            <li>bordbestilling.js</li>
-        </ul>
-        </li>
-        </ul>
+            </ul>
         </section>
    </main>
 </body>
