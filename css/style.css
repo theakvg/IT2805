@@ -3,14 +3,14 @@
     padding: 0;
     font-family: 'Open Sans', sans-serif;
 }
+
 #wrapper {
     height: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    grid-template-rows: 75px 50px 100% 100px;
+    grid-template-rows: 100px 85% 150px;
     grid-template-areas: "h h h h"
-                         "n n n n"
                          "m m m m"
                          "f f f f";
 }
@@ -18,57 +18,37 @@
 
 header {
     grid-area: h;
-    background-color: #880D1E;
+    background-color: #445738;
 }
 
 header img {
-    margin: 5px 20px;
-    max-width: 75px;
+    margin: 20px 40px;
+    max-width: 175px;
     position: absolute;
 }
 
-header h1 {
-    text-align: center;
-    font-size: 50px;
-    color: #F5F5F5;
-    margin-top: 9px;
-    font-weight: 300;
-}
-
-nav {
-    grid-area: n;
-    background-color: #000000;
-    display: flex;
-
-}
-
-nav a {
+header a {
+    float: right;
+    margin: 35px 35px;
     text-decoration: none;
-    color: #F5F5F5;
-    font-size: 25px;
-    font-weight: 1000;
-    text-align: center;
-    flex: 1;
-    padding-top: 7px;
-    border-right: #F5F5F5 solid 1px;
-    border-left: #F5F5F5 solid 1px;
-
+    color: #EDE8E8;
+    font-size: 20px;
 }
 
-nav a:hover {
-    background-color: #D1B29F;
+header a:hover{
+    font-weight: 1000;
 }
 
 main {
     grid-area: m;
-    background-color: #F5F5F5;
+    background-color: #EDE8E8;
     padding: 20px;
 }
 
 footer {
     padding: 30px;
     grid-area: f;
-    background-color: #7A7A7A;
+    background-color: #000000;
     color: white;
     column-count: 4;
 }
