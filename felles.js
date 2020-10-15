@@ -16,6 +16,7 @@ function includeHTML() {        // lager funksjonen
         };
     }
 }
+
 includeHTML();      // kjører funksjonen
 
 
