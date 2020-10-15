@@ -16,13 +16,13 @@
         <label for="navn">Navn:*</label><br>
         <input type="text" name="navn" id="navn" placeholder="Navn" required><br>
         <label for="mobil">Telefonnummer:*</label><br>
-        <input type="number" name="mobil" id="mobil" placeholder="Telefonnummer" required><br>
+        <input type="tel" name="mobil" id="mobil" placeholder="Telefonnummer" pattern="[0-9]{8,}" required><br>
         <label for="email">E-postadresse:*</label><br>
         <input type="email" navn="email" id="email" placeholder="E-postadresse"required><br>
         <label for="antallBesokende">Hvor mange er dere?*</label><br>
-        <input type="number" name="antallBesokende" id="antallBesokende" placeholder="Antall besøkende"required><br>
+        <input type="number" name="antallBesokende" id="antallBesokende" placeholder="Antall" min="1" max="10" required><br>
         <label for="dato">Hvilken dato bestiller du for?*</label><br>
-        <input type="date" navn="dato" id="dato" min="1" max="10" placeholder="Dato" required><br>
+        <input type="date" navn="dato" id="dato" placeholder="Dato" required><br>
         <label for="tidspunkt">Hvilket klokkeslett bestiller du for?*</label><br>
         <input type="time" name="tidspunkt" id="tidspunkt" placeholder="Klokkeslett" required><br>
         <label for="kommentarer">Eventuelle kommentarer:</label><br>
