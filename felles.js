@@ -10,7 +10,6 @@ function includeHTML() {        // lager funksjonen
     for (i = 0; i < sider.length; i++) {    // sjekker antallet i listen "sider" og kjører gjennom hvert element. 
         let head = document.getElementById("header"+sider[i]);   // henter header elementet, hvor den får navnene fra listen sider, og gir den navnet head. Head får en ny verdi for hver "runde"
         let foot = document.getElementById("footer"+sider[i]);   // henter footer elementet, samme som over. 
-        console.log(b,c);
         if (head != null){                  // sjekker om head elementet er lik null, for elementet vil være null for alle sidene uten om den siden scriptet kjører på. I tillegg så sjekker den kun header, da hvis header ikke er lik null, så er ikke footer lik null heller. 
             head.innerHTML = headerAll;     // tilegner header elementet hele headerAll. 
             foot.innerHTML = footerAll;     // tilegner footer elementet hele footerAll. 
