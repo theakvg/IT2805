@@ -9,12 +9,11 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    grid-template-rows: 100px 85% 150px;
+    grid-template-rows: 80px 1fr 150px;
     grid-template-areas: "h h h h"
                          "m m m m"
                          "f f f f";
 }
-
 
 header {
     grid-area: h;
@@ -22,21 +21,21 @@ header {
 }
 
 header img {
-    margin: 20px 40px;
-    max-width: 175px;
+    margin: 5px 10px;
+    max-width: 80px;
     position: absolute;
 }
 
 header a {
     float: right;
-    margin: 35px 35px;
     text-decoration: none;
     color: #EDE8E8;
-    font-size: 20px;
+    font-size: 18px;
+    padding: 31px 8px;
 }
 
 header a:hover{
-    font-weight: 1000;
+    text-shadow: 1px 1px #EDE8E8;
 }
 
 main {
@@ -57,6 +56,104 @@ footer img {
     padding-top: 10px;
     margin-right: 10px;
 }
-@media only screen and (max-width: 480px) {
+/*FORSIDE*/
+#nyhet1 {
+    padding: 10px;
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+}
+#nyhetsbilde1 {
+    max-width: 50%;
+}
 
+#nyhetstekst1 {
+    display: flex;
+    margin: 5px 0px 5px 30px;
+    align-items: center;
+    line-height: 25px;
+}
+#nyhet2 {
+    padding: 10px;
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row-reverse;
+}
+#nyhetsbilde2 {
+    max-width: 50%;
+    float: right;
+
+}
+
+#nyhetstekst2 {
+    display: flex;
+    margin: 5px 30px 5px 0px;
+    align-items: center;
+    line-height: 25px;
+}
+strong {
+    color: #B2675E;
+}
+@media only screen and (max-width: 890px) {
+    #nyhet1 {
+        flex-direction: column;
+    }
+    #nyhetsbilde1 {
+        min-width: 300px;
+        margin: auto;
+    }
+    #nyhetstekst1 {
+        margin: auto;
+        text-align: center;
+        margin-top: 10px;
+    }
+    #nyhet2 {
+        flex-direction: column;
+    }
+    #nyhetsbilde2 {
+        min-width: 300px;
+        margin: auto;
+    }
+    #nyhetstekst2 {
+        margin: auto;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+/*MENY*/
+#menyInnhold {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+#vegetarForklaring {
+    display: inline;
+}
+#visningsVegetar {
+    width: 40px;
+}
+.vegetar {
+    width: 20px;
+}
+.vegetarRett {
+    display: inline;
+}
+
+#menyMain section {
+    margin: 20px auto;
+    color: #EDE8E8;
+    padding: 30px;
+    background: #000000;
+}
+#menyMain h2, h1{
+    color: #B2675E;
+}
+
+
+@media only screen and (max-width: 480px) {
+    header a {
+        display: none;
+    }
   }
