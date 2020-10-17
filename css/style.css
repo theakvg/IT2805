@@ -131,6 +131,10 @@ strong {
 #vegetarForklaring {
     display: inline;
 }
+#introMeny {
+    width: 100%;
+
+}
 #visningsVegetar {
     width: 40px;
 }
@@ -142,16 +146,27 @@ strong {
 }
 
 #menyMain section {
-    margin: 20px auto;
     color: #EDE8E8;
     padding: 30px;
+    width: 40%;
     background: #000000;
+    margin: 20px auto;
 }
 #menyMain h2, h1{
     color: #B2675E;
 }
-
-
+#menyInnhold:not(#introMeny) {
+    display: flex;
+    flex-wrap: wrap;
+}
+@media only screen and (max-width: 820px) {
+    #menyInnhold:not(#introMeny) {
+        flex-wrap: column;
+    }
+    #menyMain section {
+        width: 90%;
+    }
+}
 @media only screen and (max-width: 480px) {
     header a {
         display: none;
