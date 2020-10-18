@@ -198,12 +198,25 @@ input:hover, textarea:hover {
     background: #B2675E;
     width: 20%;
 }
-
 ::placeholder {
     opacity: 1;
     color: grey;
 }
-
+/*OM OSS*/
+#infoInnhold {
+    width: 90%;
+    margin: auto;
+    font-size: 18px;
+}
+#infoInnhold h3, h2 {
+    color: #B2675E;
+    padding: 10px 0px;
+}
+#infoInnhold section {
+    padding: 20px 0px;
+    border-bottom: 3px solid #B2675E;
+}
+}
 @media only screen and (max-width: 480px) {
     header a {
         display: none;
