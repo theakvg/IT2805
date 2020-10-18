@@ -10,33 +10,14 @@ ul {
   padding: 0;
 }
 
-/*--Slider----------------------------------------*/
+/*--Bildekarusell----------------------------------------*/
 
-.cover-slides{
-  height: 100vh;
-}
+.bildeKarusell {
 
-.container{
-  position: relative;
-  text-align: center;
 }
+.bildeKarusell img {
+  width: auto;
+}
+.bildeKarusell button {
 
-.btn{
-  display: inline-block;
-  text-align: center;
-  border: 2px solid black;
-  font-size: 20px;
-  background: transparent;
-}
-
-.cover-slides h1{
-  font-family: 'Arbutus Slab', serif;
-  font-size: 54px;
-  color: black;
-}
-.m-20 .m-40{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)
 }
