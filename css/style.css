@@ -39,7 +39,14 @@ header a {
 header a:hover{
     font-weight: 600;
 }
-
+#overskrift {
+    color: black;
+    position: absolute;
+    font-size: 30px;
+    top: 20px;
+    font-weight: 200;
+    left: 100px;
+}
 main {
     grid-area: m;
     background-color: #fff;
