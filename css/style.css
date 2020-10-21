@@ -144,16 +144,17 @@ strong {
 .vegetarRett {
     display: inline;
 }
-
+/*#2c2c2c*/ 
 #menyMain section {
-    color: #EDE8E8;
+    /*color: #EDE8E8;*/
     padding: 30px;
     width: 40%;
-    background: #a1a1a1;
+    background: #B2675E;
     margin: 20px auto;
+    border-radius: 20px;
 }
 #menyMain h2, h1{
-    color: #B2675E;
+    color: #000000;
 }
 #menyInnhold:not(#introMeny) {
     display: flex;
