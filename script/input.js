@@ -4,8 +4,8 @@ function datoFocus() {
         dato.type="date";
     } else {
         dato.type="text";
-    }
-}
+    };
+};
 
 function tidspunktFocus() {
     var tidspunkt = document.getElementById("tidspunkt");
@@ -13,5 +13,5 @@ function tidspunktFocus() {
         tidspunkt.type="time";
     } else {
         tidspunkt.type="text";
-    }
-}
+    };
+}; 
