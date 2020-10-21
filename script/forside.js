@@ -4,7 +4,7 @@ let imgBK = document.getElementById("imgBK");
 const classBytt = document.getElementsByClassName("classBytt");
 
 
-let bildeListe = ["images/forsidemat.jpg", "images/forsidemat2.jpg", "images/logo.png", "images/nyhet1.jpg", "images/nyhet2.jpg"];
+let bildeListe = ["images/Bildekarusell/forsidemat.jpg", "images/Bildekarusell/forsidemat2.jpg", "images/Bildekarusell/forsidemat3.jpg", "images/Bildekarusell/forsidemat4.jpg", "images/Bildekarusell/forsidemat5.jpg"];
 
 classBytt[0].addEventListener("click", tilVenstre, true);
 classBytt[1].addEventListener("click", tilHoyre, true); 
