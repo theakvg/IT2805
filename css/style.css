@@ -219,6 +219,12 @@ input:hover, textarea:hover {
     padding: 20px 0px;
     border-bottom: 3px solid #B2675E;
 }
+
+#sosialeMedia img {
+    height: 40px;
+    padding-top: 10px;
+    margin-right: 10px;
+}
   /*--Bildekarusell----------------------------------------*/
 
 .bildeKarusell {
