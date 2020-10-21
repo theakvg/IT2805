@@ -76,7 +76,9 @@ footer img {
 #nyhetsbilde1 {
     max-width: 50%;
 }
-
+strong {
+    color: #B2675E;
+}
 #nyhetstekst1 {
     display: flex;
     margin: 5px 0px 5px 30px;
@@ -101,9 +103,6 @@ footer img {
     margin: 5px 30px 5px 0px;
     align-items: center;
     line-height: 25px;
-}
-strong {
-    color: #d1a574;
 }
 @media only screen and (max-width: 890px) {
     #nyhet1 {
@@ -137,12 +136,31 @@ strong {
     margin: 0px;
 }
 #bildeLerret {
-    height: 550px;
-    width: 100%;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    min-width: 100%;
+    overflow-x: clip;
 }
 #imgBK {
-    min-width: 100%;
+    height: 60vh;
+    align-self: center;
+}
+#bildeTekst1, #bildeTekst2 {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    align-self: center;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+}
+#bildeTekst1 {
+    top: 30vh;
+    font-size: 60px;
+}
+#bildeTekst2 {
+    top: 40vh;
+    font-size: 40px;
 }
 #btnHoyre, #btnVenstre {
     position: absolute;
@@ -153,21 +171,59 @@ strong {
     font-size: 30px;
     outline: none;
     border: none;
+    top: 33vh;
+
 }
 #btnHoyre:hover, #btnVenstre:hover {
     opacity: 0.5;
+
 }
 #btnHoyre {
-    top: 300px;
     right: 5px;
 }
 #btnVenstre {
-    top: 300px;
     left: 5px;
 }
 
-
-
+@media only screen and (max-width: 1000px) {
+    #btnHoyre, #btnVenstre {
+        top: 22vh;
+    }
+    #bildeLerret {
+        height: 40vh;
+    }
+    #imgBK {
+        height: 40vh;
+    }
+    #bildeTekst1 {
+        font-size: 40px;
+        top: 22vh;
+    }
+    #bildeTekst2 {
+        top: 28vh;
+        font-size: 25px;
+    }
+}
+@media only screen and (max-width: 730px) {
+    #btnHoyre, #btnVenstre {
+        top: 18vh;
+        padding: 20px 10px;
+    }
+    #bildeLerret {
+        height: 30vh;
+    }
+    #imgBK {
+        height: 30vh;
+    }
+    #bildeTekst1 {
+        font-size: 25px;
+        top: 19vh;
+    }
+    #bildeTekst2 {
+        top: 23vh;
+        font-size: 18px;
+    }
+}
 
 /*--MENY-------------------------------------------------*/
 #menyInnhold {
