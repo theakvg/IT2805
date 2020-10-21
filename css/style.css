@@ -27,7 +27,9 @@ header img {
 }
 
 header a {
-
+    display: flex;
+    flex-direction: row-reverse;
+    float: right;
     text-decoration: none;
     color: #EDE8E8;
     font-size: 18px;
@@ -151,8 +153,10 @@ strong {
     width: 40%;
     margin: 20px auto;
     border-radius: 20px;
-    background:#B6A591;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 5);
+    background: #DCD4CA;
+    border-bottom: #B2675E 5px solid;
+    border-left: #B2675E 5px solid;
+    border-right: #B2675E 5px solid;
     /*border: 5px solid #B2675E;*/
 }
 #menyMain h2, h1{
