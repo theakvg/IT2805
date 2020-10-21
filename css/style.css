@@ -17,7 +17,7 @@
 
 header {
     grid-area: h;
-    background-color: #af9d87;
+    background-color: #AF9D87;
 }
 
 header img {
@@ -153,7 +153,7 @@ strong {
     width: 40%;
     margin: 20px auto;
     border-radius: 20px;
-    background: #B6A591;
+    background: #AF9D87; 
     border: 2px solid #AD9A85;
     /*border: 5px solid #B2675E;*/
 }
