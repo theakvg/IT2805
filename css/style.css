@@ -124,6 +124,44 @@ strong {
         margin-top: 10px;
     }
 }
+/*--Bildekarusell----------------------------------------*/
+#forsideMain {
+    padding: 0px;
+    margin: 0px;
+}
+#bildeLerret {
+    height: 550px;
+    width: 100%;
+    overflow: hidden;
+}
+#imgBK {
+    min-width: 100%;
+}
+#btnHoyre, #btnVenstre {
+    position: absolute;
+    z-index: 1;
+    background: white;
+    padding: 30px 20px;
+    opacity: 0.3;
+    font-size: 30px;
+    outline: none;
+    border: none;
+}
+#btnHoyre:hover, #btnVenstre:hover {
+    opacity: 0.5;
+}
+#btnHoyre {
+    top: 300px;
+    right: 5px;
+}
+#btnVenstre {
+    top: 300px;
+    left: 5px;
+}
+
+
+
+
 /*--MENY-------------------------------------------------*/
 #menyInnhold {
     text-align: center;
@@ -146,7 +184,6 @@ strong {
 .vegetarRett {
     display: inline;
 }
-/*#2c2c2c*/ 
 #menyMain section {
     /*color: #EDE8E8;*/
     padding: 30px;
@@ -226,17 +263,6 @@ input:hover, textarea:hover {
     height: 40px;
     padding-top: 10px;
     margin-right: 10px;
-}
-  /*--Bildekarusell----------------------------------------*/
-
-.bildeKarusell {
-
-}
-.bildeKarusell img {
-width: auto;
-}
-.bildeKarusell button {
-
 }
 /*-Mobilversjon---------------------------------------------*/
 @media only screen and (max-width: 480px) {
