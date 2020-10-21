@@ -153,10 +153,8 @@ strong {
     width: 40%;
     margin: 20px auto;
     border-radius: 20px;
-    background: #DCD4CA;
-    border-bottom: #B2675E 5px solid;
-    border-left: #B2675E 5px solid;
-    border-right: #B2675E 5px solid;
+    background: #B6A591;
+    border: 2px solid #AD9A85;
     /*border: 5px solid #B2675E;*/
 }
 #menyMain h2, h1{
