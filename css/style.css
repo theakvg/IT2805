@@ -20,24 +20,26 @@ header {
     background-color: #f7f9fb; /* #AF9D87;*/
 }
 
-header img {
-    margin: 5px 10px;
-    max-width: 80px;
-    position: absolute;
+#logo {
+    margin: 7px 0px;
+    max-width: 90px;
 }
 
-header a {
+header a:not(#logoLink) {
     display: flex;
     flex-direction: row-reverse;
     float: right;
     text-decoration: none;
-    color: #000;/*#EDE8E8;*/
+    color: #000000;
     font-size: 18px;
     padding: 31px 8px;
 }
 
 header a:hover{
     font-weight: 600;
+}
+header a:after {
+    content: "\00a0 ";
 }
 #overskrift {
     color: black;
@@ -278,6 +280,11 @@ strong {
     margin: auto;
     text-align: center;
 }
+#bestillingIntro{
+    width: 50%;
+    margin: auto;
+    text-align: left;
+}
 input, textarea {
     /*text-decoration: underline;
     text-decoration-color: #B2675E;*/
@@ -319,14 +326,16 @@ input:hover, textarea:hover {
 }
 #infoInnhold section {
     padding: 20px 0px;
+}
+#infoInnhold section:not(#sosialeMedia) {
     border-bottom: 3px solid #B2675E;
 }
-
 #sosialeMedia img {
     height: 40px;
     padding-top: 10px;
     margin-right: 10px;
 }
+
 /*-Mobilversjon---------------------------------------------*/
 @media only screen and (max-width: 480px) {
     header a {
