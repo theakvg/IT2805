@@ -307,8 +307,12 @@ input:hover, textarea:hover {
 }
 #submit{
     margin: 10px auto;
+    padding: 10px;
     background: #B2675E;
     width: 20%;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
 }
 ::placeholder {
     opacity: 1;

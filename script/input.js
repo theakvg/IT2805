@@ -1,6 +1,10 @@
 const submit = document.getElementById("submit");
 
+
+
 submit.onclick = alertInput();
+
+
 
 function datoFocus() {
     let dato = document.getElementById("dato");
@@ -25,16 +29,19 @@ function feilMeldingTid() {
     // SENERE
 };
 
-function alertInput() {
-    let tidspunkt = document.getElementById("tidspunkt");
-    let dato = document.getElementById("dato");
-    let navn = document.getElementById("navn");
-    let mobil = document.getElementById("mobil");
-    let email = document.getElementById("email");
-    let antallBesokende = document.getElementById("antallBesokende");
-    let kommentarer = document.getElementById("kommentarer");
-    let a = "Du har sendt inn en bordbestilling. Bestillingen inneholdt: Navn:" + navn.value;
+function alertInput(event) {
+    
+    let tidspunkt = document.getElementById("tidspunkt").value;
+    let dato = document.getElementById("dato").value;
+    let navn = document.getElementById("navn").value;
+    let mobil = document.getElementById("mobil").value;
+    let email = document.getElementById("email").value;
+    let antallBesokende = document.getElementById("antallBesokende").value;
+    let kommentarer = document.getElementById("kommentarer").value;
+    let a = "Du har sendt inn en bordbestilling. Bestillingen inneholdt: \nNavn: " + navn + "\nMobil: " + mobil + "\nEmail: " + email + " \nAntall besøkende: " + antallBesokende + "\nDato: " + dato + "\nTidspunkt: " + tidspunkt + "\nKommentar: " + kommentarer + "\nVi gleder oss til å se deg!";
+    event.preventDefault();
     alert(a);
+    
 };
 
-// "Du har sendt inn en bordbestilling. Bestillingen inneholdt:" <br><br> " Navn:" navn.value "Mobil:" ${mobil.value} ${<br>} "Email:" ${email.value} ${<br>} Antall besøkende: ${antallBesokende.value} ${<br>} Dato: ${dato.value} ${<br>} Tidspunkt: ${tidspunkt.value} ${<br>} Vi gleder oss til å se deg!"
+// 
