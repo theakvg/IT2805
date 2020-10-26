@@ -42,19 +42,30 @@ function dagensDato() {
     dato.max = year + "-" + maxMonth + "-" + date;
 };
 
-const listeSendInn = ["tidspunkt", "dato", "navn", "mobil", "email", "antallBesokende", "kommentarer"];
-submit.onclick = alertInput();
+function riktigTid() {
+    let tid = document.getElementById("tidspunkt");
+    if (tid.validity.valid === false) {
+        alert("Våre åpningstider er mellom 11.00 og 20.00, vennligst velg et tidspunkt mellom disse tidspunktene.");
+    };
+};
+
+const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende kan ikke overstige 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord mellom disse tidspunktene"], ["kommentarer", "Kommentarer"]];
+ 
+
+
 function alertInput(event) {
-    
+
+    event.preventDefault();
+    console.log("??");
     let skrivUt = ""; 
     for (let i = 0; i < listeSendInn.length; i++) {
-        let element = document.getElementById(listeSendInn[i]).value;
+        let element = document.getElementById(listeSendInn[i][0]).value;
         console.log(element);
-        skrivUt = skrivUt + "\n" + listeSendInn[i] + ": " + element; 
+        skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element; 
     };
     let start = "Du har sendt inn en bordbestilling. Bestillingen inneholdt:"
     let avslutning = "\nVi gleder oss til å se deg!";
-    event.preventDefault();
+    riktigTid();
     alert(start + skrivUt + avslutning);
 };
 
