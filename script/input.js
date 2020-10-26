@@ -28,10 +28,18 @@ function dagensDato() {
     let dato = document.getElementById("dato");
     let n = new Date();
     minMonth = n.getMonth() + 1; 
-    dato.min = n.getFullYear() + "-" + minMonth + "-" + n.getDate();
-    maxMonth = n.getMonth() + 4; 
-    dato.max = n.getFullYear() + "-" + maxMonth + "-" + n.getDate();
-    console.log(dato.min + " " + dato.max)
+    year = n.getFullYear();
+    date = n.getDate();
+    dato.min = year + "-" + minMonth + "-" + date;
+    maxMonth = n.getMonth() + 4;
+    if (maxMonth > 12) {
+        maxMonth = maxMonth - 12; 
+        year += 1; 
+    };
+    if (maxMonth < 10) {
+        maxMonth = ("0" + (maxMonth)).slice(-2);
+    };
+    dato.max = year + "-" + maxMonth + "-" + date;
 };
 
 const listeSendInn = ["tidspunkt", "dato", "navn", "mobil", "email", "antallBesokende", "kommentarer"];
