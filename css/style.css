@@ -263,7 +263,7 @@ strong {
     left: 5px;
 }
 
-/* Justerer størrelsen på pil-knappene når nettsiden er mello 731 og 1000px bred*/
+/*Sentraliserer pil-knappene på bildekarusellen når nettsiden er mellom 731 og 1000px bred*/
 @media only screen and (max-width: 1000px) {
     #btnHoyre, #btnVenstre {
         top: 22vh;
@@ -322,7 +322,7 @@ strong {
 #visningsVegetar {
     width: 40px;
 }
-.vegetar {
+.vegetarIkon {
     width: 20px;
 }
 .vegetarRett {
