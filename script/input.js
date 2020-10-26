@@ -1,11 +1,5 @@
 const submit = document.getElementById("submit");
 
-
-
-submit.onclick = alertInput();
-
-
-
 function datoFocus() {
     let dato = document.getElementById("dato");
     if (dato === document.activeElement) {
@@ -28,20 +22,31 @@ function tidspunktFocus() {
 function feilMeldingTid() {
     // SENERE
 };
+dagensDato();
 
-function alertInput(event) {
-    
-    let tidspunkt = document.getElementById("tidspunkt").value;
-    let dato = document.getElementById("dato").value;
-    let navn = document.getElementById("navn").value;
-    let mobil = document.getElementById("mobil").value;
-    let email = document.getElementById("email").value;
-    let antallBesokende = document.getElementById("antallBesokende").value;
-    let kommentarer = document.getElementById("kommentarer").value;
-    let a = "Du har sendt inn en bordbestilling. Bestillingen inneholdt: \nNavn: " + navn + "\nMobil: " + mobil + "\nEmail: " + email + " \nAntall besøkende: " + antallBesokende + "\nDato: " + dato + "\nTidspunkt: " + tidspunkt + "\nKommentar: " + kommentarer + "\nVi gleder oss til å se deg!";
-    event.preventDefault();
-    alert(a);
-    
+function dagensDato() {
+    let dato = document.getElementById("dato");
+    let n = new Date();
+    minMonth = n.getMonth() + 1; 
+    dato.min = n.getFullYear() + "-" + minMonth + "-" + n.getDate();
+    maxMonth = n.getMonth() + 4; 
+    dato.max = n.getFullYear() + "-" + maxMonth + "-" + n.getDate();
+    console.log(dato.min + " " + dato.max)
 };
 
-// 
+const listeSendInn = ["tidspunkt", "dato", "navn", "mobil", "email", "antallBesokende", "kommentarer"];
+submit.onclick = alertInput();
+function alertInput(event) {
+    
+    let skrivUt = ""; 
+    for (let i = 0; i < listeSendInn.length; i++) {
+        let element = document.getElementById(listeSendInn[i]).value;
+        console.log(element);
+        skrivUt = skrivUt + "\n" + listeSendInn[i] + ": " + element; 
+    };
+    let start = "Du har sendt inn en bordbestilling. Bestillingen inneholdt:"
+    let avslutning = "\nVi gleder oss til å se deg!";
+    event.preventDefault();
+    alert(start + skrivUt + avslutning);
+};
+

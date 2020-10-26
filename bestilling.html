@@ -24,7 +24,7 @@
                 <label for="antallBesokende">Hvor mange er dere?*</label><br>
                 <input type="number" name="antallBesokende" id="antallBesokende" placeholder="Antall besøkende*" min="1" max="10" required><br>
                 <label for="dato">Hvilken dato bestiller du for?*</label><br>
-                <input type="text" onmouseover="(type='date')" onmouseleave="datoFocus();" onfocus="(type='date')" onblur="(type='text')" name="dato" id="dato" placeholder="Dato*" required><br>
+                <input type="text" onmouseover="(type='date')" onmouseleave="datoFocus();" onclick="dagensDato()" onfocus="(type='date')" onblur="(type='text')" name="dato" id="dato" placeholder="Dato*" min="" max="" required><br>
                 <label for="tidspunkt">Hvilket klokkeslett bestiller du for?*</label><br>
                 <input type="text" onmouseover="(type='time')" onmouseleave="tidspunktFocus();" onfocus="(type='time')" onblur="(type='text')" name="tidspunkt" id="tidspunkt" placeholder="Tidspunkt*" min="11.00" max="20.00" required><br>
                 <label for="kommentarer">Eventuelle kommentarer:</label><br>
