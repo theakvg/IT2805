@@ -28,8 +28,8 @@ header {
 
 /* Definerer størrelsen til logoen */
 #logo {
-    margin: 7px 0px;
-    max-width: 90px;
+    margin: 6px 10px;
+    max-width: 80px;
 }
 
 /* Designer selve navigasjonsbaren og setter posisjonene til elementene i navbaren*/
@@ -46,11 +46,16 @@ header {
     color: #000000;
     font-size: 18px;
     padding: 31px 8px;
+    /*med letterspacing hindrer vi at font-weight i hovereffekten endrer bredden på containeren.*/
+    letter-spacing: 0.166px;
+
 }
 
 /* Pseudo-selectors for elementene i navigasjonsbaren */
 .burgerValg:hover{
     font-weight: 600;
+    letter-spacing: 0px;
+
 }
 
 /* Beskrivelse av elementene i navbar for mobil, skal ikke vises på PC-siden*/
@@ -127,7 +132,7 @@ footer img {
 /* Nødvendig for at navigasjonsbaren kommer tilbake etter at burgermenyen har vært aktiv på mobil (i overgangen mellom PC og mobil)*/
 @media only screen and (min-width: 701px) {
     #burgerMeny {
-        visibility: visible;
+        visibility: visible !important;
     }
 }
 /*--FORSIDE------------------------------------------------*/
