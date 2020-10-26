@@ -329,10 +329,57 @@ input:hover, textarea:hover {
     padding: 10px 0px;
 }
 #infoInnhold section {
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
-#infoInnhold section:not(#sosialeMedia) {
+@media only screen and (max-width: 850px){
+    #infoInnhold section:not(#sosialeMedia) {
     border-bottom: 3px solid #B2675E;
+    }
+}
+/* Lager streker på denne måten i stedet (for å ikke ha streker helt inntil kartet) */
+@media only screen and (min-width: 850px){
+    #infoInnhold section:not(#sosialeMedia):after{
+        content: "";
+        display: block;
+        width: 45%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #B2675E;
+    }
+}
+
+/* Former boksen kartet skal ligge inni, setter at selve kartet skal fylle hele boksen */
+#mapsBoks {
+    position: relative;
+    width: 500px;
+    height: 375px;
+    overflow: hidden;
+}
+#googleMaps {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+@media only screen and (max-width: 1000px){
+    #mapsBoks {
+        width: 350px;
+        height: 263px;
+    }
+}
+@media only screen and (max-width: 850px){
+    #mapsBoks {
+        width: 400px;
+        height: 300px;
+        padding-top: 20px;
+    }
+}
+/* Vet ikke hvordan man fjerner float, så legger heller til float når det passer nettsiden */
+@media only screen and (min-width: 850px) {
+    #mapsBoks {
+        float: right;
+        margin-top: -15%;
+    }
 }
 #sosialeMedia img {
     height: 40px;
