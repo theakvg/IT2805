@@ -2,7 +2,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'proxima_novaregular', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
 
 /* Lager en grid for å definere hvor header, main og footer skal være*/
@@ -11,30 +12,36 @@
     width: 100%;
     display: grid;
     /* Lager fire kolonner for å gjøre layoutet bedre. Alle kolonnene skal være like store*/
-    grid-template-columns: repeat(4, 25%);
-    /* Lager tre rader. Den øverste (headeren)*/
+    grid-template-columns: repeat(4, 1fr);
+    /* Lager tre rader. Den øverste (headeren) skal være 80 px høy, main skal fylle den plassen innholdet tar og justerer seg deretter (1 fraction), footer skal være 200px høy*/
     grid-template-rows: 80px 1fr 200px;
+    /* Header er h, main er m, footer er f*/
     grid-template-areas: "h h h h"
                          "m m m m"
                          "f f f f";
 }
 
+/* Definerer at header skal fylle grid-områdene "h". Setter bakgrunnsfargen til header*/
 header {
     grid-area: h;
     background: #DCD4D0;
 }
 
+/* Definerer størrelsen til logoen */
 #logo {
     margin: 7px 0px;
     max-width: 90px;
 }
 
+/* Designer selve navigasjonsbaren og setter posisjonene til elementene i navbaren*/
 #burgerMeny {
     display: flex;
     flex-direction: row-reverse;
     float: right;
     visibility: visible;
 }
+
+/* Designer elementene i navigasjonsbaren */
 .burgerValg {
     text-decoration: none;
     color: #000000;
@@ -42,18 +49,24 @@ header {
     padding: 31px 8px;
 }
 
+/* Pseudo-selectors for elementene i navigasjonsbaren */
 .burgerValg:hover{
     font-weight: 600;
 }
+
+/* Beskrivelse av elementene i navbar for mobil, skal ikke vises på PC-siden*/
 .burgerBeskrivelse {
     display: none;
 }
+
+/* Setter at main har grid-område "m". Designer main.*/
 main {
     grid-area: m;
     background-color: #FFFFFF;
     padding: 20px;
 }
 
+/* Setter at footer har grid-område "f". Designer footer.*/
 footer {
     padding: 30px;
     grid-area: f;
@@ -61,12 +74,15 @@ footer {
     color: white;
     column-count: 4;
 }
+/* Definerer størrelse og plassering av logoene i footer*/
 footer img {
     height: 40px;
     padding-top: 10px;
     margin-right: 10px;
 }
 /*--Burgermeny--------------------------------------------*/
+
+/* Designer burgermenyen. Denne skal kun vises når bredden på skjermen er 700px eller smalere.*/
 @media only screen and (max-width: 700px) {
     #burgerKnapp {
         position: absolute;
@@ -81,13 +97,16 @@ footer img {
         right: 0px;
         top: 0px;
     }
+    /* Designer beskrivelsen av elementene i navbar (synlig når siden er <= 700px bred) */
     .burgerBeskrivelse {
         display: block;
         padding: 5px 8px 10px 8px;
 
     }
+
+    /* Designer navigasjonsmenyen på mobilen (inkl. bakgrunnen til menyen når den er aktiv) */
     #burgerMeny {
-        flex-direction: column;
+        flex-direction: column-reverse;
         background:#DCD4D0;
         width: 300px;
         opacity: 0.9;
@@ -105,14 +124,15 @@ footer img {
         display: block;
     }
 }
+
+/* Nødvendig for at navigasjonsbaren kommer tilbake etter at burgermenyen har vært aktiv på mobil (i overgangen mellom PC og mobil)*/
 @media only screen and (min-width: 701px) {
     #burgerMeny {
-        visibility: visible !important;
+        visibility: visible;
     }
 }
-
-
 /*--FORSIDE------------------------------------------------*/
+/* Designer layout for forside på PC*/
 #nyhet1 {
     padding: 10px;
     width: 90%;
@@ -150,6 +170,8 @@ strong {
     align-items: center;
     line-height: 25px;
 }
+
+/* Designer layout for forside på mobil*/
 @media only screen and (max-width: 890px) {
     #nyhet1 {
         flex-direction: column;
@@ -182,27 +204,29 @@ strong {
     margin: 0px;
 }
 
+/* Styler området der bildene i bildekarusellen skal være */
 #bildeLerret {
     display: flex;
     flex-direction: column;
     height: 60vh;
     min-width: 100%;
+    /* Overflow i retning x (horisontalt) gjemmes, slik at bildene ikke er bredere enn nettsiden*/
     overflow-x: hidden;
 }
 
 #imgBK {
     height: 60vh;
     align-self: center;
+    /* Bildene i bildekarusellen har 50% av opprinnelig brightness, slik at bildene blir mørkere*/
     filter: brightness(50%);
 }
 
 #bildeTekst1, #bildeTekst2 {
     position: absolute;
+    /* Setter teksten foran bildene */
     z-index: 1;
     color: white;
-    align-self: center; /*
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color:white; */
+    align-self: center;
 }
 #bildeTekst1 {
     top: 30vh;
@@ -215,6 +239,7 @@ strong {
 
 #btnHoyre, #btnVenstre {
     position: absolute;
+    /* Setter pil-knappene foran bildet*/
     z-index: 1;
     background: black;
     padding: 12px 20px;
@@ -239,6 +264,7 @@ strong {
     left: 5px;
 }
 
+/* Justerer størrelsen på pil-knappene når nettsiden er mello 731 og 1000px bred*/
 @media only screen and (max-width: 1000px) {
     #btnHoyre, #btnVenstre {
         top: 22vh;
@@ -258,6 +284,8 @@ strong {
         font-size: 25px;
     }
 }
+
+/* Justerer størrelsen på pil-knappene når nettsiden er opptil 730px bred */
 @media only screen and (max-width: 730px) {
     #btnHoyre, #btnVenstre {
         top: 18vh;
@@ -301,23 +329,27 @@ strong {
 .vegetarRett {
     display: inline;
 }
+
+/* Designer seksjonene der menyen vises */
 #menyMain section {
-    /*color: #EDE8E8;*/
     padding: 30px;
     width: 40%;
     margin: 20px auto;
     border-radius: 20px;
-    background: #f3f3f3; /*#BEAF9D; 
-    border: 2px solid #AD9A85; */
-    /*border: 5px solid #B2675E;*/
+    background: #f3f3f3;
 }
+
 #menyMain h2, h1{
     color: #B2675E;
 }
+
+/* Seksjonene plasseres ved siden av hverandre dersom det er plass, fører til 2 i bredden*/
 #menyInnhold:not(#introMeny) {
     display: flex;
     flex-wrap: wrap;
 }
+
+/* Når skjermen er 1200px eller smalere vises seksjonene under hverandre med bare 1 i bredden */
 @media only screen and (max-width: 1200px) {
     #menyInnhold:not(#introMeny) {
         flex-wrap: column;
@@ -336,10 +368,11 @@ strong {
     width: 50%;
     margin: auto;
     text-align: left;
+    line-height: 25px;
 }
+
+/* Designer input-fields */
 input, textarea {
-    /*text-decoration: underline;
-    text-decoration-color: #B2675E;*/
     outline: none;
     border: none;
     border-bottom: #B2675E 2px solid;
@@ -351,12 +384,17 @@ input, textarea {
 label {
     display: none;
 }
+
+/* Endrer borderen når et felt klikkes på */
 input:focus, textarea:focus {
     border: 2px solid #B2675E;
 }
+/* Endrer bakgrunnsfargen til et felt når det hovres over */
 input:hover, textarea:hover {
     background: #EDE8E8;
 }
+
+/* Designer knappen */
 #submit{
     margin: 10px auto;
     padding: 10px;
@@ -383,16 +421,20 @@ input:hover, textarea:hover {
 #infoInnhold section {
     padding: 10px 0px;
 }
+
+/* Lager linjene mellom de ulike seksjonene. Gjør dette på to ulike måter. Når skjermen er maks 849px bred, vil det være en border under hver seksjon (unntatt sosiale media).*/
 @media only screen and (max-width: 849px){
     #infoInnhold section:not(#sosialeMedia) {
     border-bottom: 3px solid #B2675E;
     }
 }
-/* Lager streker på denne måten i stedet (for å ikke ha streker helt inntil kartet) */
+/* Når skjermen er 850px eller bredere, */
 @media only screen and (min-width: 850px){
     #infoInnhold section:not(#sosialeMedia):after{
+        /* Nødvendig for at linjen skal lages*/
         content: "";
         display: block;
+        /* Linjen skal ha bredde tilsvarende 45% av bredden på siden */
         width: 45%;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -400,33 +442,36 @@ input:hover, textarea:hover {
     }
 }
 
-/* Former boksen kartet skal ligge inni, setter at selve kartet skal fylle hele boksen */
+/* Former boksen kartet skal ligge inni */
 #mapsBoks {
     position: relative;
     width: 500px;
     height: 375px;
-    overflow: hidden;
 }
+
+/* Setter at kartet skal fylle hele boksen*/
 #googleMaps {
     position: absolute;
     width: 100%;
     height: 100%;
     border: 0;
 }
+
+/* Justerer størrelsen på boksen etter bredden på nettsiden */
 @media only screen and (max-width: 1000px){
     #mapsBoks {
         width: 350px;
         height: 263px;
     }
 }
-@media only screen and (max-width: 850px){
+@media only screen and (max-width: 849px){
     #mapsBoks {
         width: 400px;
         height: 300px;
         padding-top: 20px;
     }
 }
-/* Vet ikke hvordan man fjerner float, så legger heller til float når det passer nettsiden */
+/* Når skjermen er 850px eller bredere, skal kartet vises til høyre på siden i stedet for under adressen til kaféen */
 @media only screen and (min-width: 850px) {
     #mapsBoks {
         float: right;
@@ -437,20 +482,4 @@ input:hover, textarea:hover {
     height: 40px;
     padding-top: 10px;
     margin-right: 10px;
-}
-
-/*-Mobilversjon---------------------------------------------*/
-@media only screen and (max-width: 480px) {
-    header a {
-        display: none;
-    }
-  }
-
-/*Font-------------------------------------------------------*/
-@font-face {
-    font-family: 'proxima_novaregular';
-    src: url('../fonts/proxima_nova/proxima_nova_alt_light-webfont.woff2') format('woff2'),
-         url('../fonts/proxima_nova/proxima_nova_alt_light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
 }
