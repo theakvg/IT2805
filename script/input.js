@@ -50,7 +50,7 @@ function dagensDato() {
 //    };
 //};
 
-const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende kan ikke overstige 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord mellom disse tidspunktene"], ["kommentarer", "Kommentarer"]];
+const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19."], ["kommentarer", "Kommentarer"]];
  
 
 
@@ -71,7 +71,7 @@ function alertInput(event) {
             let a = tid.value;
             let dagDato = n.getFullYear() + "-" + n.getMonth() + "-" + n.getDate();
             console.log(a);
-            if ((a.slice(0, 2) < 11) || (a.slice(3, 5) >= 19)) {
+            if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
                 console.log((a.slice(0, 2)) + "wtf");
                 console.log("wtf");
                 tidspunkt.setCustomValidity(false);
