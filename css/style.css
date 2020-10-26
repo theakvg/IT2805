@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
 }
 
 /* Lager en grid for å definere hvor header, main og footer skal være*/
@@ -217,8 +216,8 @@ strong {
 #imgBK {
     height: 60vh;
     align-self: center;
-    /* Bildene i bildekarusellen har 50% av opprinnelig brightness, slik at bildene blir mørkere*/
-    filter: brightness(50%);
+    /* Bildene i bildekarusellen har 90% av opprinnelig brightness, slik at bildene blir mørkere*/
+    filter: brightness(90%);
 }
 
 #bildeTekst1, #bildeTekst2 {
