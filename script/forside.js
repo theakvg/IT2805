@@ -24,6 +24,7 @@ function tilHoyre() {
         };
     };
 }; 
+
  function tilVenstre() {
     let imgSrc = imgBK.getAttribute("src");
     for (i = 0; i < bildeListe.length; i++){

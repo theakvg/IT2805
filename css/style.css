@@ -1,8 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Athiti', sans-serif;
+    font-family: 'proxima_novaregular', sans-serif;
 }
+
 /*EDE8E8 445738 000000 B2675E*/
 #wrapper {
     height: 100%;
@@ -137,6 +138,7 @@ strong {
     padding: 0px;
     margin: 0px;
 }
+
 #bildeLerret {
     display: flex;
     flex-direction: column;
@@ -147,14 +149,16 @@ strong {
 #imgBK {
     height: 60vh;
     align-self: center;
+    filter: brightness(50%);
 }
+
 #bildeTekst1, #bildeTekst2 {
     position: absolute;
     z-index: 1;
     color: white;
-    align-self: center;
+    align-self: center; /*
     -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color:white; */
 }
 #bildeTekst1 {
     top: 30vh;
@@ -164,6 +168,7 @@ strong {
     top: 40vh;
     font-size: 40px;
 }
+
 #btnHoyre, #btnVenstre {
     position: absolute;
     z-index: 1;
@@ -255,8 +260,8 @@ strong {
     width: 40%;
     margin: 20px auto;
     border-radius: 20px;
-    background: #BEAF9D; 
-    border: 2px solid #AD9A85;
+    background: #f3f3f3; /*#BEAF9D; 
+    border: 2px solid #AD9A85; */
     /*border: 5px solid #B2675E;*/
 }
 #menyMain h2, h1{
@@ -393,3 +398,12 @@ input:hover, textarea:hover {
         display: none;
     }
   }
+
+/*Font-------------------------------------------------------*/
+@font-face {
+    font-family: 'proxima_novaregular';
+    src: url('../fonts/proxima_nova/proxima_nova_alt_light-webfont.woff2') format('woff2'),
+         url('../fonts/proxima_nova/proxima_nova_alt_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
