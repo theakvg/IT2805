@@ -1,5 +1,5 @@
-const headerAll = '<a id="logoLink" href="forside.html"><img id="logo" src="images/logo.png" alt="Logo"></a><h1 id="overskrift">Stemning</h1><a href="info.html">OM OSS</a><a href="bestilling.html">BESTILL BORD</a><a href="meny.html">MENY</a><a href="forside.html">FORSIDE</a>';
-const footerAll = '<div><p><strong>Kontakt oss:</strong><br>431 56 761 <br>eliseraade@stemning.no</p></div><div><p><strong>Adresse:</strong><br>Noeveien 4b <br>4113 Drøbak</p></div><div><p><strong>Åpningstider:</strong><br>MAN-FRE: 10.00-19.00 <br>LØR: 10.00-18.00 <br>SØN: 12.00-18.00</p></div><div><p><strong>Sosiale medier:</strong></p><a href=""><img src="images/instagram.png" alt="Instagram"></a><a href="Facebook"><img src="images/facebook.png" alt=""></a></div>';
+//const headerAll = '<a id="logoLink" href="forside.html"><img id="logo" src="images/logo.png" alt="Logo"></a><h1 id="overskrift">Stemning</h1><a href="info.html">OM OSS</a><a href="bestilling.html">BESTILL BORD</a><a href="meny.html">MENY</a><a href="forside.html">FORSIDE</a>';
+//const footerAll = '<div><p><strong>Kontakt oss:</strong><br>431 56 761 <br>eliseraade@stemning.no</p></div><div><p><strong>Adresse:</strong><br>Noeveien 4b <br>4113 Drøbak</p></div><div><p><strong>Åpningstider:</strong><br>MAN-FRE: 10.00-19.00 <br>LØR: 10.00-18.00 <br>SØN: 12.00-18.00</p></div><div><p><strong>Sosiale medier:</strong></p><a href=""><img src="images/instagram.png" alt="Instagram"></a><a href="Facebook"><img src="images/facebook.png" alt=""></a></div>';
  //  All html'en til header og footer elementene ligger inne i disse const'ene. Dette er fordi det ikke er mulig å dele html kode mellom flere sider utenom på denne måten. 
  //  Hvis denne skal forandres på, anbefales det å lime den inn i et html dokument, gjøre forandringene, og lime det inn igjen. 
 
@@ -14,9 +14,22 @@ function includeHTML() {        // lager funksjonen
             head.innerHTML = headerAll;     // tilegner header elementet hele headerAll. 
             foot.innerHTML = footerAll;     // tilegner footer elementet hele footerAll. 
         };
-    }
-}
+    };
+};
 
-includeHTML();      // kjører funksjonen
+//includeHTML();      // kjører funksjonen
 
+function showBurgerMeny() {
+    console.log("what");
+    let linkShow = document.getElementsByClassName("linkShow");
+    console.log(linkShow);
+    for (i = 0; i < linkShow.length; i++) {
+        if (linkShow[i].style.visibility === "hidden") {
+            linkShow[i].style.visibility = "visible";
+        } else {
+            linkShow[i].style.visibility = "hidden";
+        };
+    };
+};
 
+ 
