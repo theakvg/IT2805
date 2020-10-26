@@ -63,23 +63,25 @@ function alertInput(event) {
     let oversikt = 0;
     for (let i = 0; i < listeSendInn.length; i++) {
         if (listeSendInn[i][0] === "tidspunkt") {
-            
             let tid = document.getElementById("tidspunkt");
             let n = new Date();
             let time = n.getHours();
             let min = ("0" + (n.getMinutes())).slice(-2);
             let a = tid.value;
-            
+            if ((time < 11) || (time >= 19)) {
+                tidspunkt.validity.valid = false;
+            };
             if (a.slice(0, 2) < time) {
-                console.log("what");
                 if (a.slice(3, 5) < min) {
-                    tidspunkt.validity.valid = false; 
+                    tidspunkt.validity.valid = false;
+                    console.log("whyy tidspunkt"); 
                 };
             };
         };
         let element = document.getElementById(listeSendInn[i][0]);
         skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element.value; 
         if (element.validity.valid === false) {
+            console.log(listeSendInn[i][0]);
             feilMelding += "\n" + listeSendInn[i][2];
             oversikt += 1;
         }; 
