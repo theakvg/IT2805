@@ -43,7 +43,7 @@ li {
 }
 
 img {
-    max-width: 900px;
+    width: 900px;
     display: block;
     margin: auto;
     padding: 20px;
