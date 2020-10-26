@@ -9,7 +9,7 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
-#topHeader {
+.topHeader {
     text-shadow: 1px 2px black;
 
 }

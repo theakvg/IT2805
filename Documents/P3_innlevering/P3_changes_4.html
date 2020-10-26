@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../P2_innlevering/P2.CSS">
+    <title>P3 Project changes</title>
+</head>
+<body>
+    <main>
+        <header class="topHeader">
+            <h1>Webteknologi gruppeprosjekt P3: Project changes</h1>
+            <h3>Forfattere: Mia Bjørndal, Thea Kvinnegard, Natalie Sørensen Forshaw, Synne Ødegaard, Quynh-Anh Nguyen Pham</h3>
+            <h3>04.11.20</h3>
+        </header>
+        <section>
+            <header><h2>Administrative detaljer</h2></header>
+            <p>Klientens navn: Elise Råde, eier og daglig leder av Stemning kafé. </p>
+            <p>Nettsidens navn: Stemning kafè</p>
+        </section>
+        <section>
+            <header><h2>Endringer i prosjektet</h2></header>
+            <strong>Design - style.css</strong>
+            <p>Siden P2 har vi gjort noen endringer på nettsidens utseende. Dette er rett og slett fordi resultatet av den forrige ideen så veldig uprofesjonell ut. Det var ikke det enkle designet vi hadde sett for oss. Vi har endret fargetema til et mer abstrakt et, og bruker heller 4 farger enn 5 for et enklere design. De nye fargekodene er #F7F9FB for header, svart for footer, #FFF for main og ##B2675E for litt fargedetaljer på de enkelte sidene. Vi fant også ut at det er like enkelt å ha all CSS i én fil. Dette er også mer oversiktlig enn å ha en felles fil i tillegg til individuelle filer.
+            </p>
+            <p>For å gjøre siden responsiv og bedre strukturert på mobil har vi lagt til en mediaquery som gjelder når skjermvidden er 890px eller under. Da havner bildene og paragrafene under hverandre på en vertikal linje isteden for side om side. Om bildet og den tilhørende paragrafen skulle vært side om side på en mobil hadde bilde vært veldig lite og teksten hadde vært på en tynn lang spalte. Vi legger til mediaquery-en for å gjøre siden mer mobilvennlig. I tillegg blir navigasjonsbaren i headeren ertsattet med en burgermeny når bredden på siden er 700px eller mindre.</p><br>
+            <strong>Felles - felles.html</strong>
+            <p>Vi har kombinert navigasjonsbaren og headeren så det er mindre kaos på toppen av siden før man kommer til det faktiske innholdet.</p><br>
+            <strong>Meny - meny.html</strong>
+            <p>I P2 står det at det skal skilles mellom vegetarisk og vegansk, men vi bruker bare vegetarisk fordi vi ikke serverer noe som er vegansk. I tillegg har vi flyttet prisen på retten til rett under beskrivelse og allergener, det ser mer oversiktlig ut. I stedet for å sette alle rettene i en lang liste, har vi valgt å vise menyen i forskjellige seksjoner, slik at den er mer oversiktlig. I tillegg vil det være lettere for brukeren å navigere denne menyen, siden det ikke er nødvendig å scrolle mye.</p><br>
+            <strong>Bordbestilling - bestilling.html</strong>
+            <p>I utgangspunktet skulle brukeren få opp et varsel dersom vedkommende forsøkte å sendte inn en bestilling på bord for mer enn ti personer. Vi har valgt å endre dette til å skrive at man ikke kan bestille bord for mer enn ti personer i beskrivelsen av skjemaet, for så å sette ti som grense for mulig input. Vi har valgt å gjøre denne endringen for å gjøre brukeren klar over denne begrensningen før vedkommende sender inn skjemaet fordi det er unødvendig at brukeren fyller inn et skjema som uansett ikke vil sendes inn, ettersom vedkommende må kontakte kaféen for å bestille bord. Vi har valgt å slå sammen "Fornavn" og "Etternavn" til "Navn", da det er unødvendig å ha to felter for dette; dersom brukeren kun skulle fylle ut ett av navnene, vil kaféen fortsatt kunne se hvem som har reservert bord. I tillegg har vi valgt å erstatte de små spørsmålstegnene fra P2 med placeholdere i input-feltene, ettersom brukeren ikke trenger mer informasjone enn disse placeholderne for å kunne fylle ut skjemaet. Vi har brukt JavaScript for å implementere placeholdere på "Dato" og "Tidspunkt" når input-feltet ikke er aktivt, men har tall der når brukeren klikker på feltene, slik at vedkommende kan se formatet som ønskes. Vi har valgt at kunden ikke kan bestille bord for mer enn tre måneder fram i tid, da dette virker realistisk.</p><br>
+            <strong>Om oss - info.html</strong>
+            <p>Vi tenkte først å lage en snapchat-konto for kafeen vår, men vi innser at det er ganske uvanlig, og sannsynligvis ikke noe en kafe-eier hadde hatt lyst til å opprettholde, derfor tar vi den ut av de sosiale mediene vi dekker. Nå har kafeen bare Facebook- og Instagramkonto. Vi har også satt posisjonen på Google Maps til Oscarsborg Festning i Drøbak, ettersom kafeen ikke har en faktisk adresse. Vi har også valgt å implementere Google Maps uten å bruke JavaScript, både fordi vi måtte betale for å bruke API key og fordi det var enklere å kun bruke HTML. Bildene heter ikke det samme som vi sa i P2 fordi vi har fjernet/byttet ut bilder. Vi har også valgt å inkludere kontaktinformasjon i både footer og på denne siden fordi enkelte brukere kan være vant til å se i footer for å finne denne informasjonen, mens andre forventer å se den på Om oss-siden (ikke direkte endring, mer en forklaring).</p><br>
+        </section>
+        <section>
+            <header><h2>Arbeidsfordeling</h2></header>
+            <ul>
+                <li>Natalie og Synne laget felles.html, altså html-en som er felles på alle sidene (header, main og footer). Thea implementerte dette og sørget for modularitet ved å bruke en for-løkke som itererer seg gjennom de ulike html-filene og setter teksten definert øverst i JS-filen inn i header/navigasjonsbar og footer som HTML (felles.js).</li>
+                <li>style.css: Natalie hadde hovedansvaret for style.css. Hun laget logoen som ble brukt, og stylet  width og padding på alle sidene. Natalie har gjort sidene responsive på forskjellige enheter slik at sidene ser bra ut uansett om man bruker PC eller telefon. Hun brukte media-queries for å gjøre dette. Fargetema og sammensetning av bilder og tekst fikset hun også. Anh var med på å bestemme farge temaene og hun kom med et logoforslag, men vi bestemte at vi skulle bruke Natalie sin.</li>
+                <li>Thea og Natalie laget rolldown meny som dukker opp på mobilversjonen. Natalie ordna med css-en og Thea ordnet slik at den ikke er der når bredden er for stor. </li>
+                <li>Natalie laget forsiden. Thea implementerte bildekarusellen i forside.js, og Natalie stylet den.</li>
+                <li>Mia laget teksten til meny.html og fant ikonet som viste hvilke retter som var vegetar, og la ikonet ved siden av vegetarrettene. Natalie stylet menyen fra style.css. </li>
+                <li>Synne laget bestilling.html og validerte input-fieldene. Natalie implementerte placeholder/hover-effekter for enkelte input fields i JavaScript. Thea implementerte en alert som viser brukeren hva vedkommende har skrevet inn i skjemaet, i tillegg til å begrense hvilke klokkeslett brukeren kan velge. Dette ble også gjort i JavaScript.</li>
+                <li>Synne laget info.html. Hun implementerte Google Maps og gjorde siden responsiv. Hun brukte media-quieries for å gjøre dette. Mia laget sosiale media-sider.</li>
+                <li>Mia og Anh utformet spørreskjemaet som ble brukt for å teste nettsiden. Denne ble laget i Google Forms.</li>
+                <li>Mia validerte alle HTML-filene.</li>
+                <li>Natalie validerte CSS-filen.</li>
+                <li>Thea og Synne validerte JavaScript-filene.
+                </li>
+                <li>Thea fikset alle problemer knyttet til Git.</li>
+                <li>Mia og Synne la inn kommentarer i alle filene, slik at innholdet ble mer forståelig for andre.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
