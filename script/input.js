@@ -13,6 +13,8 @@ function datoFocus() {
 
 function tidspunktFocus() {
     let tidspunkt = document.getElementById("tidspunkt");
+    tidspunkt.setAttribute("max", "11.00")
+    tidspunkt.setAttribute("min", "20.00")
     if (tidspunkt === document.activeElement) {
         tidspunkt.type="time";
     } else {
