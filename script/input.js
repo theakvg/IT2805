@@ -2,6 +2,8 @@ const submit = document.getElementById("submit");
 
 function datoFocus() {
     let dato = document.getElementById("dato");
+    dato.setAttribute("max", "")
+    dato.setAttribute("min", "")
     if (dato === document.activeElement) {
         dato.type="date";
     } else {

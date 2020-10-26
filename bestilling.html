@@ -29,7 +29,7 @@
                     <input type="number" name="antallBesokende" id="antallBesokende" placeholder="Antall besøkende*" min="1" max="10" required><br>
                     <label for="dato">Hvilken dato bestiller du for?*</label><br>
                     <!-- Feltet har type="text" fram til en mus hovrer over/klikker på feltet. Når musen fjernes fra/trykker ut av feltet, kjører funksjonen datoFocus(). Når musen klikker på feltet, kjører funksjonen dagensDato().-->
-                    <input type="text" onmouseover="(type='date')" onmouseleave="datoFocus();" onclick="dagensDato()" onfocus="(type='date')" onblur="(type='text')" name="dato" id="dato" placeholder="Dato*" min="" max="" required><br>
+                    <input type="text" onmouseover="(type='date')" onmouseleave="datoFocus();" onclick="dagensDato()" onfocus="(type='date')" onblur="(type='text')" name="dato" id="dato" placeholder="Dato*" required><br>
                     <label for="tidspunkt">Hvilket klokkeslett bestiller du for?*</label><br>
                     <!-- Feltet har type="text" fram til en mus hovrer over/klikker på feltet. Når musen fjernes fra feltet, kjører funksjonen tidspunktFocus(). Når musen klikker på feltet, endres type til "time".-->
                     <input type="text" onmouseover="(type='time')" onmouseleave="tidspunktFocus();" valueChange="riktigTid();"  onfocus="(type='time')" onblur="(type='text')" name="tidspunkt" id="tidspunkt" placeholder="Tidspunkt*" min="11.00" max="20.00" required><br>

@@ -82,17 +82,20 @@ footer {
 }
 
 /* Definerer størrelse og plassering av logoene i footer*/
-
+footer img {
+    height: 40px;
+    padding-top: 10px;
+    margin-right: 10px;
+}
 @media only screen and (max-width: 860px) {
     footer {
+        height: 300px;
         column-count: 2;
     }
     footer img {
         position: absolute;
-        height: 40px;
-        padding-top: 10px;
-        margin-right: 10px;
     }
+
 }
 /*--Burgermeny--------------------------------------------*/
 
