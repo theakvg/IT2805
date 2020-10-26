@@ -4,7 +4,6 @@
     font-family: 'proxima_novaregular', sans-serif;
 }
 
-/*EDE8E8 445738 000000 B2675E*/
 #wrapper {
     height: 100%;
     width: 100%;
@@ -18,7 +17,7 @@
 
 header {
     grid-area: h;
-    background-color: #f7f9fb; /* #AF9D87;*/
+    background: #F7F9FB;
 }
 
 #logo {
@@ -26,25 +25,24 @@ header {
     max-width: 90px;
 }
 
-header a:not(#logoLink) {
+#burgerMeny {
     display: flex;
     flex-direction: row-reverse;
     float: right;
+    visibility: visible;
+}
+.burgerValg {
     text-decoration: none;
     color: #000000;
     font-size: 18px;
     padding: 31px 8px;
 }
 
-header a:hover{
+.burgerValg:hover{
     font-weight: 600;
 }
-header a:after {
-    content: "\00a0 ";
-}
-.linkShow {
-    visibility: visible;
-    background-color: blue;
+.burgerBeskrivelse {
+    display: none;
 }
 #overskrift {
     color: black;
@@ -72,26 +70,44 @@ footer img {
     padding-top: 10px;
     margin-right: 10px;
 }
-/*--Thea Tester--------------------------------------------*/
-#tingShow {
-    height: 10px;
-    width: 10px;
-    background-color: tomato;
-    padding: 10px;
-    color: black;
-}
-@media only screen and (max-width: 800px) {
-    .burger {
-        visibility: hidden;
+/*--Burgermeny--------------------------------------------*/
+@media only screen and (max-width: 700px) {
+    #burgerKnapp {
         position: absolute;
+        font-size: 50px;
+        display: flex;
+        height: 80px;
+        width: 80px;
+        background: #F7F9FB;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        right: 0px;
+        top: 0px;
+    }
+    .burgerBeskrivelse {
+        display: block;
+        padding: 5px 8px 10px 8px;
+
+    }
+    #burgerMeny {
+        flex-direction: column;
+        background: #F7F9FB;
+        width: 300px;
+        opacity: 0.9;
+        position: absolute;
+        right: 0px;
+        top: 80px;
+        padding: 10px 30px;
+    }
+    .burgerValg {
+        border-top: 1px solid black;
+        padding-bottom: 5px;
+    }
+    #logoLink {
         display: block;
     }
-    header a:not(#logoLink) {
-        position: relative;
-        flex-direction: column;
-    }
 }
-
 /*--FORSIDE------------------------------------------------*/
 #nyhet1 {
     padding: 10px;

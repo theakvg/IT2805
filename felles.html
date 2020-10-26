@@ -13,17 +13,22 @@
             <a id="logoLink" href="forside.html">
             <img id="logo" src="images/logo.png" alt="Logo"></a>
             <h1 id="overskrift">Stemning</h1>
-            <a href="info.html" class="linkShow burger">OM OSS</a>
-            <a href="bestilling.html" class="linkShow burger">BESTILL BORD</a>
-            <a href="meny.html" class="linkShow burger">MENY</a>
-            <a href="forside.html" class="linkShow burger">FORSIDE</a>
-            
-            
-        </header>
-        <main>
-            <div id="tingShow" onclick="showBurgerMeny()">
+            <div id="burgerMeny">
+                <a class="burgerValg" href="info.html">OM OSS</a>
+                <p class="burgerBeskrivelse">Kontaktinformasjon, beliggenhet, åpningstider og sosiale medier</p>
+                <a class="burgerValg" href="bestilling.html">BESTILL BORD</a>
+                <p class="burgerBeskrivelse">Her kan dere bestille bord hos oss</p>
+                <a class="burgerValg" href="meny.html">MENY</a>
+                <p class="burgerBeskrivelse">Se hva vi har på menyen og hvilke allergener maten inneholder</p>
+                <a class="burgerValg" href="forside.html">FORSIDE</a>
+                <p class="burgerBeskrivelse">Les litt om kafeens siste nyheter</p>
+            </div>
+            <div id="burgerKnapp" onclick="showBurgerMeny()">
                 <p>X</p>
             </div>
+        </header>
+        <main>
+            
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero beatae esse neque, sunt laudantium quis minima dolores, asperiores dolorum, quibusdam saepe inventore ea iusto? Accusantium illo libero aliquam velit?</p>
         </main>
         <footer id="footerfelles">
@@ -39,11 +44,10 @@
             <div>
                 <p><strong>Sosiale medier:</strong></p>
                 <a href=""><img src="images/instagram.png" alt="Instagram"></a>
-                <a href="Facebook"><img src="images/facebook.png" alt=""></a>
+                <a href=""><img src="images/facebook.png" alt=""></a>
             </div>
         </footer>
     </div>
-
     <script src="script/felles.js"></script>
 
 </body>

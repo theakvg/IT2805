@@ -21,15 +21,14 @@ function includeHTML() {        // lager funksjonen
 
 function showBurgerMeny() {
     console.log("what");
-    let linkShow = document.getElementsByClassName("linkShow");
-    console.log(linkShow);
-    for (i = 0; i < linkShow.length; i++) {
-        if (linkShow[i].style.visibility === "hidden") {
-            linkShow[i].style.visibility = "visible";
-        } else {
-            linkShow[i].style.visibility = "hidden";
-        };
+    let burgerMeny = document.getElementById("burgerMeny");
+    console.log(burgerMeny);
+    if (burgerMeny.style.visibility === "hidden") {
+        burgerMeny.style.visibility = "visible";
+    } else {
+        burgerMeny.style.visibility = "hidden";
     };
+    
 };
 
  
