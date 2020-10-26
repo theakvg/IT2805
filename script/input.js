@@ -64,37 +64,53 @@ function alertInput(event) {
     for (let i = 0; i < listeSendInn.length; i++) {
         if (listeSendInn[i][0] === "tidspunkt") {
             let tid = document.getElementById("tidspunkt");
+            let dato = document.getElementById("dato");
             let n = new Date();
             let time = n.getHours();
             let min = ("0" + (n.getMinutes())).slice(-2);
             let a = tid.value;
-            if ((time < 11) || (time >= 19)) {
-                tidspunkt.validity.valid = false;
-            };
-            if (a.slice(0, 2) < time) {
+            let dagDato = n.getFullYear() + "-" + n.getMonth() + "-" + n.getDate();
+            console.log(a);
+            if ((a.slice(0, 2) < 11) || (a.slice(3, 5) >= 19)) {
+                console.log((a.slice(0, 2)) + "wtf");
+                console.log("wtf");
+                tidspunkt.setCustomValidity(false);
+                
+            } else if ((a.slice(0, 2) < time) && (dagDato === dato.min)) {
+                console.log("wtf2");
                 if (a.slice(3, 5) < min) {
-                    tidspunkt.validity.valid = false;
+                    tidspunkt.setCustomValidity(false);
                     console.log("whyy tidspunkt"); 
                 };
-            };
+            } else {
+                console.log("FUNK")
+                tidspunkt.setCustomValidity("");
+                console.log(tidspunkt.validity.valid);
+            }
         };
         let element = document.getElementById(listeSendInn[i][0]);
-        skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element.value; 
+        skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element.value;
+        console.log(listeSendInn[i][0] + " " + element.validity.valid); 
         if (element.validity.valid === false) {
-            console.log(listeSendInn[i][0]);
             feilMelding += "\n" + listeSendInn[i][2];
             oversikt += 1;
-        }; 
+        };
     };
     if (oversikt === 0) {
         let start = "Du har sendt inn en bordbestilling. Bestillingen inneholdt:"
         let avslutning = "\nVi gleder oss til å se deg!";
         alert(start + skrivUt + avslutning);
+        for (let i = 0; i < listeSendInn.length; i++) {
+            let element = document.getElementById(listeSendInn[i][0]);
+            element.value = "";
+        };
+        
     } else {
         let feilStart = "Du har fått denne feilmelding: ";
         let feilAvslutt = "\nDu må rette opp i disse feilene før du sender bestillingen";
         alert(feilStart + feilMelding + feilAvslutt);
     };
+    
     
     
 };
