@@ -20,13 +20,14 @@ function includeHTML() {        // lager funksjonen
 //includeHTML();      // kjører funksjonen
 
 function showBurgerMeny() {
-    console.log("what");
     let burgerMeny = document.getElementById("burgerMeny");
-    console.log(burgerMeny);
-    if (burgerMeny.style.visibility === "hidden") {
-        burgerMeny.style.visibility = "visible";
-    } else {
+    console.log(burgerMeny);  
+    if (burgerMeny.style.visibility === "visible") {
         burgerMeny.style.visibility = "hidden";
+        console.log(burgerMeny.style.visibility);
+    } else {
+        burgerMeny.style.visibility = "visible";
+        console.log(burgerMeny.style.visibility);
     };
     
 };
