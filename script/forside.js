@@ -32,7 +32,6 @@ function tilHoyre() {
             let a = 0;
             if (i > bildeListe.length-2) {
                 a = 0; 
-                console.log(a + "0");
             } else {
                 a = i + 1;
             };

@@ -57,7 +57,6 @@ const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil
 function alertInput(event) {
 
     event.preventDefault();
-    console.log("??");
     let skrivUt = ""; 
     let feilMelding = "";
     let oversikt = 0;
@@ -70,27 +69,18 @@ function alertInput(event) {
             let min = ("0" + (n.getMinutes())).slice(-2);
             let a = tid.value;
             let dagDato = n.getFullYear() + "-" + n.getMonth() + "-" + n.getDate();
-            console.log(a);
             if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
-                console.log((a.slice(0, 2)) + "wtf");
-                console.log("wtf");
-                tidspunkt.setCustomValidity(false);
-                
+                tidspunkt.setCustomValidity(false);            
             } else if ((a.slice(0, 2) < time) && (dagDato === dato.min)) {
-                console.log("wtf2");
                 if (a.slice(3, 5) < min) {
                     tidspunkt.setCustomValidity(false);
-                    console.log("whyy tidspunkt"); 
                 };
             } else {
-                console.log("FUNK")
                 tidspunkt.setCustomValidity("");
-                console.log(tidspunkt.validity.valid);
-            }
+            };
         };
         let element = document.getElementById(listeSendInn[i][0]);
         skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element.value;
-        console.log(listeSendInn[i][0] + " " + element.validity.valid); 
         if (element.validity.valid === false) {
             feilMelding += "\n" + listeSendInn[i][2];
             oversikt += 1;
