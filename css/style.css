@@ -1,14 +1,18 @@
+/* Felles for all HTML */
 * {
     margin: 0;
     padding: 0;
     font-family: 'proxima_novaregular', sans-serif;
 }
 
+/* Lager en grid for å definere hvor header, main og footer skal være*/
 #wrapper {
     height: 100%;
     width: 100%;
     display: grid;
+    /* Lager fire kolonner for å gjøre layoutet bedre. Alle kolonnene skal være like store*/
     grid-template-columns: repeat(4, 25%);
+    /* Lager tre rader. Den øverste (headeren)*/
     grid-template-rows: 80px 1fr 200px;
     grid-template-areas: "h h h h"
                          "m m m m"
@@ -17,7 +21,7 @@
 
 header {
     grid-area: h;
-    background: #C2C2C2;
+    background: #DCD4D0;
 }
 
 #logo {
@@ -43,14 +47,6 @@ header {
 }
 .burgerBeskrivelse {
     display: none;
-}
-#overskrift {
-    color: black;
-    position: absolute;
-    font-size: 30px;
-    top: 20px;
-    font-weight: 200;
-    left: 100px;
 }
 main {
     grid-area: m;
@@ -78,7 +74,7 @@ footer img {
         display: flex;
         height: 80px;
         width: 80px;
-        background: #C2C2C2;
+        background: #DCD4D0;
         align-items: center;
         justify-content: center;
         color: black;
@@ -92,7 +88,7 @@ footer img {
     }
     #burgerMeny {
         flex-direction: column;
-        background: #C2C2C2;
+        background:#DCD4D0;
         width: 300px;
         opacity: 0.9;
         visibility: hidden;
