@@ -21,13 +21,16 @@ includeHTML();      // kjører funksjonen
 
 function showBurgerMeny() {
     let burgerMeny = document.getElementById("burgerMeny");
-    console.log(burgerMeny);  
+    let imgMeny = document.getElementById("imgMeny");
+    console.log(imgMeny);  
     if (burgerMeny.style.visibility === "visible") {
         burgerMeny.style.visibility = "hidden";
         console.log(burgerMeny.style.visibility);
+        imgMeny.src = "images/bestikkMeny.png";
     } else {
         burgerMeny.style.visibility = "visible";
         console.log(burgerMeny.style.visibility);
+        imgMeny.src = "images/bestikkKryss.png";
     };
     
 };
