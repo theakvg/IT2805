@@ -108,13 +108,12 @@ function dagSjekk(dato) {
 function datoSjekk (i) {
     if (listeSendInn[i][0] === "dato") {
         let dato = document.getElementById("dato");
-        let n = new Date();
         console.log(dato.value, datMax, datMin);
-        if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) > datMax.slice(0, 3))) {
+        if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) < datMax.slice(0, 3))) {
             dato.setCustomValidity(false); 
             console.log("år");           
         } else if (datMin.slice(5, 7) < datMax.slice(5, 7)) {
-            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) || (dato.value.slice(5, 7) < datMax.slice(5, 7))) {
+            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) || (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
                 dato.setCustomValidity(false);
                 console.log("måned1");
             } else {
@@ -122,12 +121,12 @@ function datoSjekk (i) {
                 console.log("måned12");
             }
         } else if (datMin.slice(5, 7) > datMax.slice(5, 7)) {
-            if ((dato.value.slice(5, 7) > datMin.slice(5, 7)) || (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
+            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) || (dato.value.slice(5, 7) < datMax.slice(5, 7))) {
                 dato.setCustomValidity(false);
-                console.log("måned2");
+                console.log(dato.value.slice(5, 7), datMax.slice(5, 7), datMin.slice(5, 7));
             } else {
                 dagSjekk(dato);
-                console.log(dato.value.slice(5, 7), "haha", datMax.slice(5, 7));
+                console.log("måned22");
             }
             
         } else {
