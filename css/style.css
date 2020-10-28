@@ -98,18 +98,23 @@ footer img {
 @media only screen and (max-width: 860px) {
     footer {
         height: 180px;
-        column-count: 2;
+        column-count: 1;
         line-height: 25px;
         padding: 15px;
     }
     footer img {
-        position: absolute;
+        position: relative;
     }
     #footerInstagram {
-        right: 25%;
+        bottom: 5px;
+        right: 2%;
     }
     #footerFacebook {
-        right: 18%;
+        bottom: 5px;
+        right: -3%;
+    }
+    #footerKontakt, #footerAdresse {
+        display: none;
     }
 
 }
