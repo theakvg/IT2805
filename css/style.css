@@ -97,21 +97,22 @@ footer img {
 /*Gjør footeren responsiv*/
 @media only screen and (max-width: 860px) {
     footer {
+        position: relative;
         height: 180px;
         column-count: 1;
         line-height: 25px;
         padding: 15px;
     }
     footer img {
-        position: relative;
+        position: absolute;
     }
     #footerInstagram {
-        bottom: 5px;
-        right: 2%;
+        bottom: 20px;
+        right: 42%;
     }
     #footerFacebook {
-        bottom: 5px;
-        right: -3%;
+        bottom: 20px;
+        right: 52%;
     }
     #footerKontakt, #footerAdresse {
         display: none;
@@ -388,7 +389,7 @@ strong {
 /* Når skjermen er 1200px eller smalere vises seksjonene på 1 kolonne */
 @media only screen and (max-width: 1200px) {
     #menyInnhold:not(#introMeny) {
-        flex-wrap: column;
+        flex-direction: column;
     }
     #menyMain section {
         width: 90%;
@@ -457,13 +458,7 @@ input:hover, textarea:hover {
     padding: 10px 0px;
 }
 
-/* Lager linjene mellom de ulike seksjonene. Gjør dette på to ulike måter. Når skjermen er maks 849px bred, vil det være en border under hver seksjon (unntatt sosiale media).*/
-/*@media only screen and (max-width: 799px){
-    #infoInnhold section:not(#sosialeMedia) {
-    border-bottom: 3px solid #B2675E ;
-    }
-}*/
-/* Når skjermen er 850px eller bredere, */
+/* Legger til linje mellom seksjonene */
 @media only screen and (min-width: 800px){
     #infoInnhold section:not(#sosialeMedia):after{
         /* Nødvendig for at linjen skal lages*/
