@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
                     <input type="text" onmouseover="(type='date')" onmouseleave="datoFocus();" onclick="dagensDato()" onfocus="(type='date')" onblur="(type='text')" name="dato" id="dato" placeholder="Dato*" required><br>
                     <label for="tidspunkt">Hvilket klokkeslett bestiller du for?*</label><br>
                     <!-- Feltet har type="text" fram til en mus hovrer over/klikker på feltet. Når musen fjernes fra feltet, kjører funksjonen tidspunktFocus(). Når musen klikker på feltet, endres type til "time".-->
-                    <input type="text" onmouseover="(type='time')" onmouseleave="tidspunktFocus();" valueChange="riktigTid();"  onfocus="(type='time')" onblur="(type='text')" name="tidspunkt" id="tidspunkt" placeholder="Tidspunkt*" required><br>
+                    <input type="text" onmouseover="(type='time')" onmouseleave="tidspunktFocus();"  onfocus="(type='time')" onblur="(type='text')" name="tidspunkt" id="tidspunkt" placeholder="Tidspunkt*" required><br>
                     <label for="kommentarer">Eventuelle kommentarer:</label><br>
                     <textarea name="kommentarer" id="kommentarer" placeholder="Eventuelle kommentarer" cols="30" rows="5"></textarea><br>
                     <!-- Når man klikker på knappen, kjører funksjonen alertInput(event). -->

@@ -1,1 +1,2 @@
 [1012/130206.303:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[1028/092546.710:ERROR:directory_reader_win.cc(43)] FindFirstFile: Systemet finner ikke angitt bane. (0x3)
