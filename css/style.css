@@ -388,7 +388,7 @@ strong {
 /* Når skjermen er 1200px eller smalere vises seksjonene på 1 kolonne */
 @media only screen and (max-width: 1200px) {
     #menyInnhold:not(#introMeny) {
-        flex-wrap: column;
+        flex-direction: column;
     }
     #menyMain section {
         width: 90%;
