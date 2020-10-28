@@ -4,13 +4,16 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
-
+body {
+    overflow-x: hidden;
+}
 /* Lager en grid for å definere hvor header, main og footer skal være*/
 #wrapper {
-    height: 100%;
+    /*minimumshøyde på siden så footeren alltid befinner seg nederst på siden om innholdet i main ikke overflower 100vh*/
+    min-height: 100vh;
     width: 100%;
     display: grid;
-    /* Lager fire kolonner for å gjøre layoutet bedre. Alle kolonnene skal være like store*/
+    /* Setter størrelsen på de 4 kolonnene til å være like store*/
     grid-template-columns: repeat(4, 1fr);
     /* Lager tre rader. Den øverste (headeren) skal være 80 px høy, main skal fylle den plassen innholdet tar og justerer seg deretter (1 fraction), footer skal være 200px høy*/
     grid-template-rows: 80px 1fr 200px;
@@ -29,19 +32,20 @@ header {
 /* Definerer størrelsen til logoen */
 #logo {
     margin: 6px 10px;
-    max-width: 80px;
+    Width: 80px;
 }
 
-/* Designer selve navigasjonsbaren og setter posisjonene til elementene i navbaren*/
-#burgerMeny {
+/* Designer selve navigasjonsbaren og posisjonerer elementene til høyre i headeren*/
+#navMeny {
     display: flex;
     flex-direction: row-reverse;
     float: right;
     visibility: visible;
+    z-index: 2;
 }
 
 /* Designer elementene i navigasjonsbaren */
-.burgerValg {
+.navValg {
     text-decoration: none;
     color: #000000;
     font-size: 18px;
@@ -52,14 +56,14 @@ header {
 }
 
 /* Pseudo-selectors for elementene i navigasjonsbaren */
-.burgerValg:hover{
+.navValg:hover{
     font-weight: 600;
     letter-spacing: 0px;
 
 }
 
 /* Beskrivelse av elementene i navbar for mobil, skal ikke vises på PC-siden*/
-.burgerBeskrivelse {
+.navBeskrivelse {
     display: none;
 }
 
@@ -69,7 +73,10 @@ main {
     background-color: #FFFFFF;
     padding: 20px;
 }
-
+.mainInnhold {
+    width: 90%;
+    margin: auto;
+}
 /* Setter at footer har grid-område "f". Designer footer.*/
 footer {
     padding: 30px 0px;
@@ -87,6 +94,7 @@ footer img {
     padding-top: 10px;
     margin-right: 10px;
 }
+/*Gjør footeren responsiv*/
 @media only screen and (max-width: 860px) {
     footer {
         column-count: 2;
@@ -101,7 +109,7 @@ footer img {
 
 /* Designer burgermenyen. Denne skal kun vises når bredden på skjermen er 700px eller smalere.*/
 @media only screen and (max-width: 700px) {
-    #burgerKnapp {
+    #navKnapp {
         position: absolute;
         font-size: 50px;
         display: flex;
@@ -114,14 +122,14 @@ footer img {
         top: 0px;
     }
     /* Designer beskrivelsen av elementene i navbar (synlig når siden er <= 700px bred) */
-    .burgerBeskrivelse {
+    .navBeskrivelse {
         display: block;
         padding: 5px 8px 10px 8px;
 
     }
 
     /* Designer navigasjonsmenyen på mobilen (inkl. bakgrunnen til menyen når den er aktiv) */
-    #burgerMeny {
+    #navMeny {
         flex-direction: column-reverse;
         background:#DCD4D0;
         width: 300px;
@@ -132,7 +140,7 @@ footer img {
         top: 80px;
         padding: 10px 30px;
     }
-    .burgerValg {
+    .navValg {
         border-top: 1px solid black;
         padding-bottom: 5px;
     }
@@ -143,7 +151,7 @@ footer img {
 
 /* Nødvendig for at navigasjonsbaren kommer tilbake etter at burgermenyen har vært aktiv på mobil (i overgangen mellom PC og mobil)*/
 @media only screen and (min-width: 701px) {
-    #burgerMeny {
+    #Meny {
         visibility: visible !important;
     }
 }
@@ -187,7 +195,7 @@ strong {
     line-height: 25px;
 }
 
-/* Designer layout for forside på mobil*/
+/* Designer layout for forside på smalere skjerm*/
 @media only screen and (max-width: 890px) {
     #nyhet1 {
         flex-direction: column;
@@ -233,13 +241,13 @@ strong {
 #imgBK {
     height: 60vh;
     align-self: center;
-    /* Bildene i bildekarusellen har 90% av opprinnelig brightness, slik at bildene blir mørkere*/
+    /* Bildene i bildekarusellen har 90% av opprinnelig brightness, slik at teksten over vises bedre*/
     filter: brightness(90%);
 }
 
 #bildeTekst1, #bildeTekst2 {
     position: absolute;
-    /* Setter teksten foran bildene */
+    /* Setter teksten foran bildekarusellen */
     z-index: 1;
     color: white;
     align-self: center;
@@ -255,11 +263,11 @@ strong {
 
 #btnHoyre, #btnVenstre {
     position: absolute;
-    /* Setter pil-knappene foran bildet*/
+    /* Setter pil-knappene foran bildekarusellen*/
     z-index: 1;
     background: black;
     padding: 12px 20px;
-    opacity: 0.3;
+    opacity: 0.4;
     font-size: 30px;
     font-weight: 100;
     outline: none;
@@ -280,10 +288,11 @@ strong {
     left: 5px;
 }
 
-/*Sentraliserer pil-knappene på bildekarusellen når nettsiden er mellom 731 og 1000px bred*/
-@media only screen and (max-width: 1000px) {
+/*Sentraliserer pil-knappene på bildekarusellen, og minker skriftstørrelsen når nettsiden er mellom 731 og 1000px bred*/
+@media only screen and (max-width: 1070px) {
     #btnHoyre, #btnVenstre {
-        top: 22vh;
+        top: 25vh;
+
     }
     #bildeLerret {
         height: 40vh;
@@ -301,11 +310,12 @@ strong {
     }
 }
 
-/* Justerer størrelsen på pil-knappene når nettsiden er opptil 730px bred */
-@media only screen and (max-width: 730px) {
+/* Justerer posisjon på pil-knappene og størrelse på tekst når nettsiden er opptil 730px bred */
+@media only screen and (max-width: 740px) {
     #btnHoyre, #btnVenstre {
-        top: 18vh;
-        padding: 20px 10px;
+        top: 21vh;
+        padding: 2px 10px;
+        
     }
     #bildeLerret {
         height: 30vh;
@@ -326,8 +336,6 @@ strong {
 /*--MENY-------------------------------------------------*/
 #menyInnhold {
     text-align: center;
-    width: 90%;
-    margin: auto;
 }
 #vegetarForklaring {
     display: inline;
@@ -354,7 +362,6 @@ strong {
     border-radius: 20px;
     background: #f3f3f3;
 }
-
 #menyMain h2, h1{
     color: #B2675E;
 }
@@ -365,7 +372,7 @@ strong {
     flex-wrap: wrap;
 }
 
-/* Når skjermen er 1200px eller smalere vises seksjonene under hverandre med bare 1 i bredden */
+/* Når skjermen er 1200px eller smalere vises seksjonene på 1 kolonne */
 @media only screen and (max-width: 1200px) {
     #menyInnhold:not(#introMeny) {
         flex-wrap: column;
@@ -376,8 +383,6 @@ strong {
 }
 /*--BESTILL BORD----------------------------------------*/
 #bestillingInnhold {
-    width: 90%;
-    margin: auto;
     text-align: center;
 }
 #bestillingIntro{
@@ -396,7 +401,6 @@ input, textarea {
     outline: none;
     border: none;
     border-bottom: #B2675E 2px solid;
-
     padding: 10px;
     width: 50%;
     border-radius: 20px;
@@ -430,8 +434,6 @@ input:hover, textarea:hover {
 }
 /*--OM OSS------------------------------------------------*/
 #infoInnhold {
-    width: 90%;
-    margin: auto;
     font-size: 18px;
 }
 #infoInnhold h3, h2 {
