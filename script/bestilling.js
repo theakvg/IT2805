@@ -32,7 +32,7 @@ function dagensDato() {                         // Definerer funksjonen
     let year = n.getFullYear();                 // Henter ut kun året
     let date = n.getDate();                     // Henter ut kun dagens dato
     dato.min = year + "-" + minMonth + "-" + date;  // Setter året, måneden og datoen sammen, i samme format som input elementet dato trenger. Setter dette som minimum
-    let maxMonth = n.getMonth() + 4;            // Setter maks måned for 3 måneder fram i tid.
+    let maxMonth = n.getMonth() + 5;            // Setter maks måned for 3 måneder fram i tid.
     if (maxMonth > 12) {                        // En if løkke, som kjører hvis maks måned er over 12. 
         maxMonth = maxMonth - 12;               // Setter maks måned det antall den er over 12. 
         year += 1;                              // Setter year for et år senere. 
@@ -72,19 +72,24 @@ function tidSjekk (i) {
 }
 
 function dagSjekk(dato) {
-    if (dato.value.slice(8, 9) < datMin.slice(8, 9)) {
-        if (dato.value.slice(5, 6) === datMin.slice(5, 6)){
+    if (dato.value.slice(5, 7) === datMin.slice(5, 7)) {
+        if (dato.value.slice(8, 10) < datMin.slice(8, 10)) {
             dato.setCustomValidity(false);
+            console.log("dag1");
+        }
+        else {
+            console.log(dato.value.slice(8, 10), datMin.slice(8, 10));
+            dato.setCustomValidity("");
+            console.log("dag12");
+        }
+    } else if (dato.value.slice(8, 10) > datMax.slice(8, 10)) {
+        if (dato.value.slice(5, 7) === datMax.slice(5, 7)) {
+            dato.setCustomValidity(false);
+            console.log("dag2");
         }
         else {
             dato.setCustomValidity("");
-        }
-    } else if (dato.value.slice(8, 9) > datMax.slice(8, 9)) {
-        if (dato.value.slice(5, 6) === datMax.slice(5, 6)){
-            dato.setCustomValidity(false);
-        }
-        else {
-            dato.setCustomValidity("");
+            console.log("dag22");
         }
     }
 }
@@ -92,24 +97,31 @@ function dagSjekk(dato) {
 function datoSjekk (i) {
     if (listeSendInn[i][0] === "dato") {
         let dato = document.getElementById("dato");
+        let n = new Date();
+        console.log(dato.value, datMax, datMin);
         if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) > datMax.slice(0, 3))) {
-            dato.setCustomValidity(false);          
+            dato.setCustomValidity(false); 
+            console.log("år");           
         } else if (datMin.slice(5, 6) < datMax.slice(5, 6)) {
             if ((dato.value.slice(5, 6) < datMin.slice(5, 6)) || (dato.value.slice(5, 6) > datMax.slice(5, 6))) {
                 dato.setCustomValidity(false);
+                console.log("måned1");
             } else {
                 dagSjekk(dato);
             }
         } else if (datMin.slice(5, 6) > datMax.slice(5, 6)) {
             if ((dato.value.slice(5, 6) > datMin.slice(5, 6)) || (dato.value.slice(5, 6) < datMax.slice(5, 6))) {
                 dato.setCustomValidity(false);
+                console.log("måned2");
             } else {
                 dagSjekk(dato);
             }
             
         } else {
             dato.setCustomValidity("");
+            console.log("wtf");
         }
+        console.log("okeu?");
     }
 }
 
