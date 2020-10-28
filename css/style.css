@@ -16,7 +16,7 @@ body {
     /* Setter størrelsen på de 4 kolonnene til å være like store*/
     grid-template-columns: repeat(4, 1fr);
     /* Lager tre rader. Den øverste (headeren) skal være 80 px høy, main skal fylle den plassen innholdet tar og justerer seg deretter (1 fraction), footer skal være 200px høy*/
-    grid-template-rows: 80px 1fr 140px;
+    grid-template-rows: 80px 1fr 120px;
     /* Header er h, main er m, footer er f*/
     grid-template-areas: "h h h h"
                          "m m m m"
@@ -85,14 +85,13 @@ footer {
     background-color: #000000;
     color: white;
     column-count: 4;
-
 }
 
 /* Definerer størrelse og plassering av logoene i footer*/
 footer img {
-    height: 40px;
-    padding-top: 10px;
-    margin-right: 10px;
+    height: 30px;
+    padding-top: 5px;
+    margin-right: 5px;
 }
 /*Gjør footeren responsiv*/
 @media only screen and (max-width: 860px) {
@@ -107,17 +106,32 @@ footer img {
         position: absolute;
     }
     #footerInstagram {
-        bottom: 20px;
-        right: 37vw;
+        bottom: 10px;
+        right: 50%;
     }
     #footerFacebook {
-        bottom: 20px;
-        right: 54vw;
+        bottom: 10px;
+        right: 45%;
     }
     #footerKontakt, #footerAdresse {
         display: none;
     }
-
+}
+@media only screen and (max-width: 700px) and (min-width: 451px) {
+    #footerInstagram {
+        right: 50%;
+    }
+    #footerFacebook {
+        right: 43%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    #footerInstagram {
+        right: 50%;
+    }
+    #footerFacebook {
+        right: 40%;
+    }
 }
 /*--Burgermeny--------------------------------------------*/
 
@@ -180,8 +194,6 @@ footer img {
 }
 #nyhetsbilde1 {
     max-width: 50%;
-    height: auto;
-
 }
 strong {
     color: #B2675E;
@@ -201,7 +213,6 @@ strong {
 }
 #nyhetsbilde2 {
     max-width: 50%;
-    height: auto;
     float: right;
 }
 
