@@ -53,15 +53,14 @@ const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil
 function tidSjekk (i) {
     if (listeSendInn[i][0] === "tidspunkt") {
         let tidspunkt = document.getElementById("tidspunkt");
+        let dato = document.getElementById("dato");
         let n = new Date();
         let time = n.getHours();
         let min = ("0" + (n.getMinutes())).slice(-2);
         let a = tidspunkt.value;
-        let month = n.getMonth() + 1; 
-        let dagDato = n.getFullYear() + "-" + month + "-" + n.getDate();
         if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
-            tidspunkt.setCustomValidity(false);            
-        } else if ((a.slice(0, 2) < time) && (dagDato === datMin)) {
+            tidspunkt.setCustomValidity(false);         
+        } else if ((a.slice(0, 2) < time) && (dato.value === datMin)) {
             if (time === a.slice(0, 2)) {
                 if (a.slice(3, 5) < min) {
                     tidspunkt.setCustomValidity(false);
