@@ -161,7 +161,7 @@ footer img {
 
 /* Nødvendig for at navigasjonsbaren kommer tilbake etter at burgermenyen har vært aktiv på mobil (i overgangen mellom PC og mobil)*/
 @media only screen and (min-width: 701px) {
-    #Meny {
+    #navMeny {
         visibility: visible !important;
     }
 }
