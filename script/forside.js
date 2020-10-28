@@ -17,12 +17,12 @@ function tilVenstre() {
                 a = bildeListe.length - 1; 
             } else {
                 a = i - 1;
-            };
+            }
             imgBK.src = bildeListe[a][0];
             imgBK.alt = bildeListe[a][1];
-        };
-    };
-}; 
+        }
+    }
+}
 
 function tilHoyre() {
     let imgSrc = imgBK.getAttribute("src");
@@ -33,12 +33,12 @@ function tilHoyre() {
                 a = 0; 
             } else {
                 a = i + 1;
-            };
+            }
             imgBK.src = bildeListe[a][0];
             imgBK.alt = bildeListe[a][1];
-        };
-    };
-}; 
+        }
+    }
+}
 
 
 
