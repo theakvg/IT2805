@@ -108,11 +108,11 @@ footer img {
     }
     #footerInstagram {
         bottom: 20px;
-        right: 42%;
+        right: 37vw;
     }
     #footerFacebook {
         bottom: 20px;
-        right: 52%;
+        right: 54vw;
     }
     #footerKontakt, #footerAdresse {
         display: none;
@@ -346,7 +346,27 @@ strong {
         font-size: 18px;
     }
 }
-
+@media only screen and (max-width: 480px) {
+    #btnHoyre, #btnVenstre {
+        top: 23vh;
+        padding: 2px 12px;
+        
+    }
+    #bildeLerret {
+        height: 30vh;
+    }
+    #imgBK {
+        height: 30vh;
+    }
+    #bildeTekst1 {
+        top: 22vh;
+        font-size: 18px;
+    }
+    #bildeTekst2 {
+        top: 27vh;
+        font-size: 13px;
+    }
+}
 /*--MENY-------------------------------------------------*/
 #menyInnhold {
     text-align: center;
