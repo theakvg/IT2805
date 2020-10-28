@@ -1,6 +1,4 @@
 //Henter elementer fra HTML
-const btnVenstre = document.getElementById("btnVenstre");
-const btnHoyre = document.getElementById("btnHoyre"); 
 let imgBK = document.getElementById("imgBK");
 const classBytt = document.getElementsByClassName("classBytt");
 
@@ -28,7 +26,7 @@ function tilVenstre() {
 
 function tilHoyre() {
     let imgSrc = imgBK.getAttribute("src");
-    for (i = 0; i < bildeListe.length; i++){
+    for (let i = 0; i < bildeListe.length; i++){
         if (bildeListe[i][0] === imgSrc){
             let a = 0;
             if (i > bildeListe.length-2) {
