@@ -61,9 +61,8 @@ function tidSjekk (i) {
         let dagDato = n.getFullYear() + "-" + month + "-" + n.getDate();
         if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
             tidspunkt.setCustomValidity(false);            
-        } else if ((a.slice(0, 2) < time) && (dato.value === datMin)) {
+        } else if ((a.slice(0, 2) < time) && (dagDato === datMin)) {
             if (time === a.slice(0, 2)) {
-                
                 if (a.slice(3, 5) < min) {
                     tidspunkt.setCustomValidity(false);
                 } else {
@@ -71,11 +70,9 @@ function tidSjekk (i) {
                 }
             } else {
                 tidspunkt.setCustomValidity(false);
-                console.log(dagDato, datMin);
-            };
+            }
         } else {
             tidspunkt.setCustomValidity("");
-            console.log(dagDato, datMin);
         }
     }
 }
@@ -84,41 +81,32 @@ function dagSjekk(dato) {
     if (dato.value.slice(5, 7) === datMin.slice(5, 7)) {
         if (dato.value.slice(8, 10) < datMin.slice(8, 10)) {
             dato.setCustomValidity(false);
-            console.log("dag1");
         }
         else {
             console.log(dato.value.slice(8, 10), datMin.slice(8, 10));
             dato.setCustomValidity("");
-            console.log("dag12");
         }
     } else if (dato.value.slice(8, 10) > datMax.slice(8, 10)) {
         if (dato.value.slice(5, 7) === datMax.slice(5, 7)) {
             dato.setCustomValidity(false);
-            console.log("dag2");
         }
         else {
             dato.setCustomValidity("");
-            console.log("dag22");
         }
     } else {
-        console.log("??? bahh");
     }
 }
 
 function datoSjekk (i) {
     if (listeSendInn[i][0] === "dato") {
         let dato = document.getElementById("dato");
-        console.log(dato.value, datMax, datMin);
         if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) < datMax.slice(0, 3))) {
-            dato.setCustomValidity(false); 
-            console.log("år");           
+            dato.setCustomValidity(false);           
         } else if (datMin.slice(5, 7) < datMax.slice(5, 7)) {
             if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) || (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
                 dato.setCustomValidity(false);
-                console.log("måned1");
             } else {
                 dagSjekk(dato);
-                console.log("måned12");
             }
         } else if (datMin.slice(5, 7) > datMax.slice(5, 7)) {
             if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) && (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
@@ -126,14 +114,10 @@ function datoSjekk (i) {
                 console.log(dato.value.slice(5, 7) < datMax.slice(5, 7), datMin.slice(5, 7));
             } else {
                 dagSjekk(dato);
-                console.log("måned22");
             }
-            
         } else {
             dato.setCustomValidity("");
-            console.log("wtf");
         }
-        console.log(datMin, datMax);
     }
 }
 
