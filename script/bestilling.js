@@ -20,31 +20,28 @@ function tidspunktFokus() {
     }
 }
 
-dagensDato();
-
-function dagensDato() {
-    let dato = document.getElementById("dato");
-    let n = new Date();
-    let minMonth = n.getMonth() + 1; 
-    let year = n.getFullYear();
-    let date = n.getDate();
-    dato.min = year + "-" + minMonth + "-" + date;
-    let maxMonth = n.getMonth() + 4;
-    
-    if (maxMonth > 12) {
-        maxMonth = maxMonth - 12; 
-        year += 1; 
+// Funksjon som henter ut dagens dato, og setter minimums og maksimum verdi på dato inputfeltet
+function dagensDato() {                         // Definerer funksjonen
+    let dato = document.getElementById("dato"); // Henter inputelementet dato fra html
+    let n = new Date();                         // Setter n som dagens dato, med en innebygd funksjon fra js som henter ut datoen pluss mer
+    let minMonth = n.getMonth() + 1;            // Henter ut kun måneden fra n. Må legge til 1, da man får feil ellers. 
+    let year = n.getFullYear();                 // Henter ut kun året
+    let date = n.getDate();                     // Henter ut kun dagens dato
+    dato.min = year + "-" + minMonth + "-" + date;  // Setter året, måneden og datoen sammen, i samme format som input elementet dato trenger. Setter dette som minimum
+    let maxMonth = n.getMonth() + 4;            // Setter maks måned for 3 måneder fram i tid.
+    if (maxMonth > 12) {                        // En if løkke, som kjører hvis maks måned er over 12. 
+        maxMonth = maxMonth - 12;               // Setter maks måned det antall den er over 12. 
+        year += 1;                              // Setter year for et år senere. 
     }
-    if (maxMonth < 10) {
+    if (maxMonth < 10) {                        // En if løkke som kjører hvis maks måned
         maxMonth = ("0" + (maxMonth)).slice(-2);
     }
     dato.max = year + "-" + maxMonth + "-" + date;
 }
+dagensDato();
 
 const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19."], ["kommentarer", "Kommentarer"]];
  
-
-
 function alertInput(event) {
 
     event.preventDefault();
