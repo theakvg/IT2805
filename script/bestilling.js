@@ -61,7 +61,7 @@ function tidSjekk (i) {
         let dagDato = n.getFullYear() + "-" + month + "-" + n.getDate();
         if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
             tidspunkt.setCustomValidity(false);            
-        } else if ((a.slice(0, 2) < time) && (dagDato === datMin)) {
+        } else if ((a.slice(0, 2) < time) && (dato.value === datMin)) {
             if (time === a.slice(0, 2)) {
                 
                 if (a.slice(3, 5) < min) {
@@ -71,7 +71,7 @@ function tidSjekk (i) {
                 }
             } else {
                 tidspunkt.setCustomValidity(false);
-                console.log("baah tid");
+                console.log(dagDato, datMin);
             };
         } else {
             tidspunkt.setCustomValidity("");
