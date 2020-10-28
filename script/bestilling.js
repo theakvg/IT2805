@@ -1,3 +1,4 @@
+/*Endrer type på input-feltet fra text til dato når man hovrer over eller hvis feltet er fokusert*/
 function datoFokus() {
     let dato = document.getElementById("dato");
     dato.setAttribute("max", "");
@@ -8,7 +9,7 @@ function datoFokus() {
         dato.type="text";
     }
 }
-
+/*Endrer type på input-feltet fra text til tine når man hovrer over eller hvis feltet er fokusert*/
 function tidspunktFokus() {
     let tidspunkt = document.getElementById("tidspunkt");
     tidspunkt.setAttribute("max", "11.00");
