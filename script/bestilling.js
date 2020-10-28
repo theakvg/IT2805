@@ -71,7 +71,7 @@ function tidSjekk (i) {
     }
 }
 
-function dagSjekk() {
+function dagSjekk(dato) {
     if (dato.value.slice(8, 9) < datMin.slice(8, 9)) {
         if (dato.value.slice(5, 6) === datMin.slice(5, 6)){
             dato.setCustomValidity(false);
@@ -92,20 +92,19 @@ function dagSjekk() {
 function datoSjekk (i) {
     if (listeSendInn[i][0] === "dato") {
         let dato = document.getElementById("dato");
-        let n = new Date();
         if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) > datMax.slice(0, 3))) {
             dato.setCustomValidity(false);          
         } else if (datMin.slice(5, 6) < datMax.slice(5, 6)) {
             if ((dato.value.slice(5, 6) < datMin.slice(5, 6)) || (dato.value.slice(5, 6) > datMax.slice(5, 6))) {
                 dato.setCustomValidity(false);
             } else {
-                dagSjekk();
+                dagSjekk(dato);
             }
         } else if (datMin.slice(5, 6) > datMax.slice(5, 6)) {
             if ((dato.value.slice(5, 6) > datMin.slice(5, 6)) || (dato.value.slice(5, 6) < datMax.slice(5, 6))) {
                 dato.setCustomValidity(false);
             } else {
-                dagSjekk();
+                dagSjekk(dato);
             }
             
         } else {
