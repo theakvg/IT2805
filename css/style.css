@@ -508,17 +508,32 @@ input:hover, textarea:hover {
 }
 
 /* Justerer størrelsen på boksen etter bredden på nettsiden */
-@media only screen and (max-width: 1100px){
+@media only screen and (max-width: 1100px) {
     #mapsBoks {
         width: 350px;
         height: 263px;
     }
 }
-@media only screen and (max-width: 799px){
+@media only screen and (max-width: 799px) {
     #mapsBoks {
         width: 400px;
         height: 300px;
         padding-top: 20px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    #mapsBoks {
+        width: 300px;
+        height: 225px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #mapsBoks {
+        width: 250px;
+        height: 188px;
     }
 }
 /* Når skjermen er 850px eller bredere, skal kartet vises til høyre på siden i stedet for under adressen til kaféen */
