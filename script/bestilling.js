@@ -21,6 +21,9 @@ function tidspunktFokus() {
     }
 }
 
+let datMax = "";
+let datMin = "";
+
 // Funksjon som henter ut dagens dato, og setter minimums og maksimum verdi på dato inputfeltet
 function dagensDato() {                         // Definerer funksjonen
     let dato = document.getElementById("dato"); // Henter inputelementet dato fra html
@@ -38,38 +41,97 @@ function dagensDato() {                         // Definerer funksjonen
         maxMonth = ("0" + (maxMonth)).slice(-2);  // Legger til en 0 forran tallet hvis det ikke er tosifret tall. Dette må skje siden formatet til dato min og max er slik. 
     }                                             // Kode hentet fra: https://l.facebook.com/l.php?u=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F6040515%2Fhow-do-i-get-month-and-date-of-javascript-in-2-digit-format%3Ffbclid%3DIwAR0OLd7E0XsYMDE12e8r9hno6bZFD8EBxUocPel5pHt0gPe9BXT1UiL58mI&h=AT2w0DCmrTI4D0wL2bDTFyGN3IS_3BVzy2iLab0VP3VMCHE0tq6I1Lc_FzNNXw_X4vSiUYS0IfmQP4sVtxACLDJ9REHhs4VizOWWM-94yGqoueb5k_4lv-Td7RsQimouXIoe_h1OFe5umlmRPT5OGA
     dato.max = year + "-" + maxMonth + "-" + date;  // Setter året, maks måned og datoen sammen, i samme format som input elementet dato trenger. Setter dette som maksimum
+    datMax = dato.max;
+    datMin = dato.min;
 }
 dagensDato();  // Kjører funksjonen dagensDato()
 
 // Listen over alle inputelementene sitt id navn, oversiktsnavn og feilmelding
 const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19."], ["kommentarer", "Kommentarer"]];
- 
-// Funksjon som 
-function alertInput(event) {
 
+// Funksjon som 
+function tidSjekk (i) {
+    if (listeSendInn[i][0] === "tidspunkt") {
+        let tidspunkt = document.getElementById("tidspunkt");
+        let dato = document.getElementById("dato");
+        let n = new Date();
+        let time = n.getHours();
+        let min = ("0" + (n.getMinutes())).slice(-2);
+        let a = tidspunkt.value;
+        let dagDato = n.getFullYear() + "-" + n.getMonth() + "-" + n.getDate();
+        if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
+            tidspunkt.setCustomValidity(false);            
+        } else if ((a.slice(0, 2) < time) && (dagDato === dato.min)) {
+            if (a.slice(3, 5) < min) {
+                tidspunkt.setCustomValidity(false);
+            }
+        } else {
+            tidspunkt.setCustomValidity("");
+        }
+    }
+}
+
+function dagSjekk() {
+    if (dato.value.slice(8, 9) < datMin.slice(8, 9)) {
+        if (dato.value.slice(5, 6) === datMin.slice(5, 6)){
+            dato.setCustomValidity(false);
+            console.log("dag1");
+        }
+        else {
+            dato.setCustomValidity("");
+            console.log("dag12");
+        }
+    } else if (dato.value.slice(8, 9) > datMax.slice(8, 9)) {
+        if (dato.value.slice(5, 6) === datMax.slice(5, 6)){
+            dato.setCustomValidity(false);
+            console.log("dag2");
+        }
+        else {
+            dato.setCustomValidity("");
+            console.log("dag22");
+        }
+    }
+}
+
+function datoSjekk (i) {
+    if (listeSendInn[i][0] === "dato") {
+        let dato = document.getElementById("dato");
+        let n = new Date();
+        console.log(dato.value, datMax, datMin);
+        if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) > datMax.slice(0, 3))) {
+            dato.setCustomValidity(false); 
+            console.log("år");           
+        } else if (datMin.slice(5, 6) < datMax.slice(5, 6)) {
+            if ((dato.value.slice(5, 6) < datMin.slice(5, 6)) || (dato.value.slice(5, 6) > datMax.slice(5, 6))) {
+                dato.setCustomValidity(false);
+                console.log("måned1");
+            } else {
+                dagSjekk();
+            }
+        } else if (datMin.slice(5, 6) > datMax.slice(5, 6)) {
+            if ((dato.value.slice(5, 6) > datMin.slice(5, 6)) || (dato.value.slice(5, 6) < datMax.slice(5, 6))) {
+                dato.setCustomValidity(false);
+                console.log("måned2");
+            } else {
+                dagSjekk();
+            }
+            
+        } else {
+            dato.setCustomValidity("");
+            console.log("wtf");
+        }
+        console.log("okeu?");
+    }
+}
+
+function alertInput(event) {
     event.preventDefault();
     let skrivUt = ""; 
     let feilMelding = "";
     let oversikt = 0;
     for (let i = 0; i < listeSendInn.length; i++) {
-        if (listeSendInn[i][0] === "tidspunkt") {
-            let tidspunkt = document.getElementById("tidspunkt");
-            let dato = document.getElementById("dato");
-            let n = new Date();
-            let time = n.getHours();
-            let min = ("0" + (n.getMinutes())).slice(-2);
-            let a = tidspunkt.value;
-            let dagDato = n.getFullYear() + "-" + n.getMonth() + "-" + n.getDate();
-            if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
-                tidspunkt.setCustomValidity(false);            
-            } else if ((a.slice(0, 2) < time) && (dagDato === dato.min)) {
-                if (a.slice(3, 5) < min) {
-                    tidspunkt.setCustomValidity(false);
-                }
-            } else {
-                tidspunkt.setCustomValidity("");
-            }
-        }
+        tidSjekk(i);
+        datoSjekk(i);
         let element = document.getElementById(listeSendInn[i][0]);
         skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element.value;
         if (element.validity.valid === false) {
