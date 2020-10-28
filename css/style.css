@@ -445,13 +445,13 @@ input:hover, textarea:hover {
 }
 
 /* Lager linjene mellom de ulike seksjonene. Gjør dette på to ulike måter. Når skjermen er maks 849px bred, vil det være en border under hver seksjon (unntatt sosiale media).*/
-@media only screen and (max-width: 849px){
+/*@media only screen and (max-width: 799px){
     #infoInnhold section:not(#sosialeMedia) {
-    border-bottom: 3px solid #B2675E;
+    border-bottom: 3px solid #B2675E ;
     }
-}
+}*/
 /* Når skjermen er 850px eller bredere, */
-@media only screen and (min-width: 850px){
+@media only screen and (min-width: 800px){
     #infoInnhold section:not(#sosialeMedia):after{
         /* Nødvendig for at linjen skal lages*/
         content: "";
@@ -486,7 +486,7 @@ input:hover, textarea:hover {
         height: 263px;
     }
 }
-@media only screen and (max-width: 849px){
+@media only screen and (max-width: 799px){
     #mapsBoks {
         width: 400px;
         height: 300px;
@@ -494,7 +494,7 @@ input:hover, textarea:hover {
     }
 }
 /* Når skjermen er 850px eller bredere, skal kartet vises til høyre på siden i stedet for under adressen til kaféen */
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 800px) {
     #mapsBoks {
         float: right;
         margin-top: -15%;
