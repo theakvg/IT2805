@@ -474,6 +474,7 @@ input:hover, textarea:hover {
 
 /* Designer knappen */
 #submit{
+    outline: none;
     margin: 10px auto;
     padding: 10px;
     background: #B2675E;
