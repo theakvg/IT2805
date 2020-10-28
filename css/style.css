@@ -98,7 +98,7 @@ footer img {
 @media only screen and (max-width: 860px) {
     footer {
         position: relative;
-        height: 180px;
+        height: 130px;
         column-count: 1;
         line-height: 25px;
         padding: 15px;
