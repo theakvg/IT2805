@@ -75,20 +75,16 @@ function dagSjekk() {
     if (dato.value.slice(8, 9) < datMin.slice(8, 9)) {
         if (dato.value.slice(5, 6) === datMin.slice(5, 6)){
             dato.setCustomValidity(false);
-            console.log("dag1");
         }
         else {
             dato.setCustomValidity("");
-            console.log("dag12");
         }
     } else if (dato.value.slice(8, 9) > datMax.slice(8, 9)) {
         if (dato.value.slice(5, 6) === datMax.slice(5, 6)){
             dato.setCustomValidity(false);
-            console.log("dag2");
         }
         else {
             dato.setCustomValidity("");
-            console.log("dag22");
         }
     }
 }
@@ -97,30 +93,24 @@ function datoSjekk (i) {
     if (listeSendInn[i][0] === "dato") {
         let dato = document.getElementById("dato");
         let n = new Date();
-        console.log(dato.value, datMax, datMin);
         if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) > datMax.slice(0, 3))) {
-            dato.setCustomValidity(false); 
-            console.log("år");           
+            dato.setCustomValidity(false);          
         } else if (datMin.slice(5, 6) < datMax.slice(5, 6)) {
             if ((dato.value.slice(5, 6) < datMin.slice(5, 6)) || (dato.value.slice(5, 6) > datMax.slice(5, 6))) {
                 dato.setCustomValidity(false);
-                console.log("måned1");
             } else {
                 dagSjekk();
             }
         } else if (datMin.slice(5, 6) > datMax.slice(5, 6)) {
             if ((dato.value.slice(5, 6) > datMin.slice(5, 6)) || (dato.value.slice(5, 6) < datMax.slice(5, 6))) {
                 dato.setCustomValidity(false);
-                console.log("måned2");
             } else {
                 dagSjekk();
             }
             
         } else {
             dato.setCustomValidity("");
-            console.log("wtf");
         }
-        console.log("okeu?");
     }
 }
 
