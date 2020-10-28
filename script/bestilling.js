@@ -47,7 +47,7 @@ function dagensDato() {                         // Definerer funksjonen
 dagensDato();  // Kjører funksjonen dagensDato()
 
 // Listen over alle inputelementene sitt id navn, oversiktsnavn og feilmelding
-const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19."], ["kommentarer", "Kommentarer"]];
+const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19. Det er heller ikke mulig å bestille tid for tidligere idag."], ["kommentarer", "Kommentarer"]];
 
 // Funksjon som 
 function tidSjekk (i) {
@@ -100,6 +100,8 @@ function dagSjekk(dato) {
             dato.setCustomValidity("");
             console.log("dag22");
         }
+    } else {
+        console.log("??? bahh");
     }
 }
 
@@ -111,26 +113,28 @@ function datoSjekk (i) {
         if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) > datMax.slice(0, 3))) {
             dato.setCustomValidity(false); 
             console.log("år");           
-        } else if (datMin.slice(5, 6) < datMax.slice(5, 6)) {
-            if ((dato.value.slice(5, 6) < datMin.slice(5, 6)) || (dato.value.slice(5, 6) > datMax.slice(5, 6))) {
+        } else if (datMin.slice(5, 7) < datMax.slice(5, 7)) {
+            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) || (dato.value.slice(5, 7) < datMax.slice(5, 7))) {
                 dato.setCustomValidity(false);
                 console.log("måned1");
             } else {
                 dagSjekk(dato);
+                console.log("måned12");
             }
-        } else if (datMin.slice(5, 6) > datMax.slice(5, 6)) {
-            if ((dato.value.slice(5, 6) > datMin.slice(5, 6)) || (dato.value.slice(5, 6) < datMax.slice(5, 6))) {
+        } else if (datMin.slice(5, 7) > datMax.slice(5, 7)) {
+            if ((dato.value.slice(5, 7) > datMin.slice(5, 7)) || (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
                 dato.setCustomValidity(false);
                 console.log("måned2");
             } else {
                 dagSjekk(dato);
+                console.log(dato.value.slice(5, 7), "haha", datMax.slice(5, 7));
             }
             
         } else {
             dato.setCustomValidity("");
             console.log("wtf");
         }
-        console.log("okeu?");
+        console.log(datMin, datMax);
     }
 }
 
