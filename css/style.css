@@ -16,7 +16,7 @@ body {
     /* Setter størrelsen på de 4 kolonnene til å være like store*/
     grid-template-columns: repeat(4, 1fr);
     /* Lager tre rader. Den øverste (headeren) skal være 80 px høy, main skal fylle den plassen innholdet tar og justerer seg deretter (1 fraction), footer skal være 200px høy*/
-    grid-template-rows: 80px 1fr 200px;
+    grid-template-rows: 80px 1fr 140px;
     /* Header er h, main er m, footer er f*/
     grid-template-areas: "h h h h"
                          "m m m m"
@@ -97,11 +97,21 @@ footer img {
 /*Gjør footeren responsiv*/
 @media only screen and (max-width: 860px) {
     footer {
+        height: 180px;
         column-count: 2;
         line-height: 25px;
+        padding: 15px;
     }
     footer img {
         position: absolute;
+    }
+    #footerInstagram {
+        right: 25%;
+    }
+    #footerSnapchat {
+        right: 10%;
+    }
+    footer div {
     }
 
 }
@@ -254,11 +264,11 @@ strong {
 }
 #bildeTekst1 {
     top: 30vh;
-    font-size: 60px;
+    font-size: 50px;
 }
 #bildeTekst2 {
     top: 40vh;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #btnHoyre, #btnVenstre {
@@ -289,7 +299,7 @@ strong {
 }
 
 /*Sentraliserer pil-knappene på bildekarusellen, og minker skriftstørrelsen når nettsiden er mellom 731 og 1000px bred*/
-@media only screen and (max-width: 1070px) {
+@media only screen and (max-width: 950px) {
     #btnHoyre, #btnVenstre {
         top: 25vh;
 
@@ -301,20 +311,20 @@ strong {
         height: 40vh;
     }
     #bildeTekst1 {
-        font-size: 40px;
-        top: 22vh;
+        font-size: 30px;
+        top: 25vh;
     }
     #bildeTekst2 {
-        top: 28vh;
-        font-size: 25px;
+        top: 32vh;
+        font-size: 20px;
     }
 }
 
 /* Justerer posisjon på pil-knappene og størrelse på tekst når nettsiden er opptil 730px bred */
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 700px) {
     #btnHoyre, #btnVenstre {
-        top: 21vh;
-        padding: 2px 10px;
+        top: 23vh;
+        padding: 2px 12px;
         
     }
     #bildeLerret {
@@ -324,11 +334,11 @@ strong {
         height: 30vh;
     }
     #bildeTekst1 {
+        top: 22vh;
         font-size: 25px;
-        top: 19vh;
     }
     #bildeTekst2 {
-        top: 23vh;
+        top: 27vh;
         font-size: 18px;
     }
 }
