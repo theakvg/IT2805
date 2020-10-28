@@ -8,6 +8,8 @@ let bildeListe = [["images/Bildekarusell/forsidemat.jpg","Bilde av kaffekopp og 
 classBytt[0].addEventListener("click", tilVenstre); //Kjører funksjonen tilVenstre når knappen til venstre i karusellen klikkes på
 classBytt[1].addEventListener("click", tilHoyre); //Kjører funksjonen tilHoyre når knappen til høyre i karusellen klikkes på
 
+let slideInterval = setInterval(tilVenstre, 4000);
+
 function tilVenstre() {
     let imgSrc = imgBK.getAttribute("src"); //Lager en variabel imgSrc som er lik src til bildet imgBK
     for (i = 0; i < bildeListe.length; i++){
