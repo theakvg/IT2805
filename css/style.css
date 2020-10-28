@@ -180,6 +180,8 @@ footer img {
 }
 #nyhetsbilde1 {
     max-width: 50%;
+    height: auto;
+
 }
 strong {
     color: #B2675E;
@@ -199,6 +201,7 @@ strong {
 }
 #nyhetsbilde2 {
     max-width: 50%;
+    height: auto;
     float: right;
 }
 
@@ -372,7 +375,7 @@ strong {
     text-align: center;
 }
 #vegetarForklaring {
-    display: inline;
+    margin: 2   0px 0px;
 }
 #introMeny {
     width: 100%;
@@ -390,7 +393,7 @@ strong {
 
 /* Designer seksjonene der menyen vises */
 #menyMain section {
-    padding: 30px;
+    padding: 20px;
     width: 40%;
     margin: 20px auto;
     border-radius: 20px;
@@ -420,12 +423,13 @@ strong {
     text-align: center;
 }
 #bestillingIntro{
+    padding: 20px;
     width: 50%;
     margin: auto;
     text-align: left;
     line-height: 25px;
 }
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 850px) {
     #bestillingIntro{
         width: 90%;
     }
@@ -438,6 +442,11 @@ input, textarea {
     padding: 10px;
     width: 50%;
     border-radius: 20px;
+}
+@media only screen and (max-width: 850px) {
+    input, textarea {
+        width: 90%;
+    }
 }
 label {
     display: none;
