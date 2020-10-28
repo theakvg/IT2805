@@ -36,12 +36,14 @@ function dagensDato() {                         // Definerer funksjonen
     if (maxMonth < 10) {                        // En if løkke som kjører hvis maks måned er under 10
         maxMonth = ("0" + (maxMonth)).slice(-2);  // Legger til en 0 forran tallet hvis det ikke er tosifret tall. Dette må skje siden formatet til dato min og max er slik. 
     }                                             // Kode hentet fra: https://l.facebook.com/l.php?u=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F6040515%2Fhow-do-i-get-month-and-date-of-javascript-in-2-digit-format%3Ffbclid%3DIwAR0OLd7E0XsYMDE12e8r9hno6bZFD8EBxUocPel5pHt0gPe9BXT1UiL58mI&h=AT2w0DCmrTI4D0wL2bDTFyGN3IS_3BVzy2iLab0VP3VMCHE0tq6I1Lc_FzNNXw_X4vSiUYS0IfmQP4sVtxACLDJ9REHhs4VizOWWM-94yGqoueb5k_4lv-Td7RsQimouXIoe_h1OFe5umlmRPT5OGA
-    dato.max = year + "-" + maxMonth + "-" + date;
+    dato.max = year + "-" + maxMonth + "-" + date;  // Setter året, maks måned og datoen sammen, i samme format som input elementet dato trenger. Setter dette som maksimum
 }
-dagensDato();
+dagensDato();  // Kjører funksjonen dagensDato()
 
+// Listen over alle inputelementene sitt id navn, oversiktsnavn og feilmelding
 const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og tre måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19."], ["kommentarer", "Kommentarer"]];
  
+// Funksjon som 
 function alertInput(event) {
 
     event.preventDefault();
