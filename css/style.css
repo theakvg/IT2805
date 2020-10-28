@@ -38,6 +38,7 @@ header {
     flex-direction: row-reverse;
     float: right;
     visibility: visible;
+    z-index: 2;
 }
 
 /* Designer elementene i navigasjonsbaren */

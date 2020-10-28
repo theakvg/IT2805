@@ -20,8 +20,10 @@ includeHTML();      // kjører funksjonen
 
 
 function showBurgerMeny() {
-    let burgerMeny = document.getElementById("burgerMeny");
     let imgMeny = document.getElementById("imgMeny");
+    let heiNoe = document.getElementById("heiNoe");
+    let burgerMeny = document.getElementById("burgerMeny");
+    let burgerKnapp = document.getElementById("burgerKnapp");
     console.log(imgMeny);  
     if (burgerMeny.style.visibility === "visible") {
         burgerMeny.style.visibility = "hidden";
@@ -34,5 +36,7 @@ function showBurgerMeny() {
     };
     
 };
+
+
 
  
