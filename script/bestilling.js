@@ -33,9 +33,9 @@ function dagensDato() {                         // Definerer funksjonen
         maxMonth = maxMonth - 12;               // Setter maks måned det antall den er over 12. 
         year += 1;                              // Setter year for et år senere. 
     }
-    if (maxMonth < 10) {                        // En if løkke som kjører hvis maks måned
-        maxMonth = ("0" + (maxMonth)).slice(-2);
-    }
+    if (maxMonth < 10) {                        // En if løkke som kjører hvis maks måned er under 10
+        maxMonth = ("0" + (maxMonth)).slice(-2);  // Legger til en 0 forran tallet hvis det ikke er tosifret tall. Dette må skje siden formatet til dato min og max er slik. 
+    }                                             // Kode hentet fra: https://l.facebook.com/l.php?u=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F6040515%2Fhow-do-i-get-month-and-date-of-javascript-in-2-digit-format%3Ffbclid%3DIwAR0OLd7E0XsYMDE12e8r9hno6bZFD8EBxUocPel5pHt0gPe9BXT1UiL58mI&h=AT2w0DCmrTI4D0wL2bDTFyGN3IS_3BVzy2iLab0VP3VMCHE0tq6I1Lc_FzNNXw_X4vSiUYS0IfmQP4sVtxACLDJ9REHhs4VizOWWM-94yGqoueb5k_4lv-Td7RsQimouXIoe_h1OFe5umlmRPT5OGA
     dato.max = year + "-" + maxMonth + "-" + date;
 }
 dagensDato();
