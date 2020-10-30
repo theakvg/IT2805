@@ -110,7 +110,6 @@ function datoSjekk (i) {
         } else if (datMin.slice(5, 7) > datMax.slice(5, 7)) {
             if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) && (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
                 dato.setCustomValidity(false);
-                console.log(dato.value.slice(5, 7) < datMax.slice(5, 7), datMin.slice(5, 7));
             } else {
                 dagSjekk(dato);
             }
