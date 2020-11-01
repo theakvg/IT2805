@@ -149,6 +149,11 @@ footer img {
         right: 0px;
         top: 0px;
     }
+    .mobilMenylink {
+        display: block;
+        text-decoration: none;
+        color: black;
+    }
     /* Designer beskrivelsen av elementene i navbar (synlig når siden er <= 700px bred) */
     .navBeskrivelse {
         display: block;
@@ -161,7 +166,6 @@ footer img {
         flex-direction: column-reverse;
         background:#DCD4D0;
         width: 300px;
-        opacity: 0.9;
         visibility: hidden;
         position: absolute;
         right: 0px;
