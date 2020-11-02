@@ -9,37 +9,36 @@ classBytt[0].addEventListener("click", tilVenstre); //Kjører funksjonen tilVens
 classBytt[1].addEventListener("click", tilHoyre); //Kjører funksjonen tilHoyre når knappen til høyre i karusellen klikkes på
 
 
-let slideInterval = setInterval(tilHoyre, 7000);
+let slideInterval = setInterval(tilHoyre, 7000);        // En funksjon som etter 7 sekunder, kjører funksjonen tilHoyre
 
 function tilVenstre() {
-    let imgSrc = imgBK.getAttribute("src"); //Lager en variabel imgSrc som er lik src til bildet imgBK
-    for (i = 0; i < bildeListe.length; i++){
-        if (bildeListe[i][0] === imgSrc){
+    let imgSrc = imgBK.getAttribute("src"); 
+    for (i = 0; i < bildeListe.length; i++){        // For-løkke som kjører gjennom hele listen: bildeListe
+        if (bildeListe[i][0] === imgSrc){           // Hvis imgSrc (som er sourcen til bildet som vises i bildekarusellen) er lik et element i listen, kjør funksjon
             let a = 0;
-            if (i === 0) {
-                a = bildeListe.length - 1; 
+            if (i === 0) {                          // Hvis karusellen er på det første bildet, altså 0, kjør funksjon
+                a = bildeListe.length - 1;          // Sett a til det siste elementet i listen
             } else {
-                a = i - 1;
+                a = i - 1;                          // sett a til et element tidligere i listen
             }
-            imgBK.src = bildeListe[a][0];
-            imgBK.alt = bildeListe[a][1];
+            imgBK.src = bildeListe[a][0];           // Sett ny source til karusellen, altså bytt bildet
+            imgBK.alt = bildeListe[a][1];           // Sett tilsvarende alt tekst til bildet, som ligger i samme funksjon
         }
     }
-   
 }
 
-function tilHoyre() {
+function tilHoyre() {                       
     let imgSrc = imgBK.getAttribute("src");
-    for (let i = 0; i < bildeListe.length; i++){
-        if (bildeListe[i][0] === imgSrc){
+    for (let i = 0; i < bildeListe.length; i++){    // For-løkke som kjører gjennom hele listen: bildeListe
+        if (bildeListe[i][0] === imgSrc){           // Hvis imgSrc (som er sourcen til bildet som vises i bildekarusellen) er lik et element i listen, kjør funksjon
             let a = 0;
-            if (i > bildeListe.length-2) {
-                a = 0; 
+            if (i > bildeListe.length-2) {          // Hvis karusellen er på det siste bildet, altså lengden på listen, kjør funksjon
+                a = 0;                              // Sett a til det første elementet i listen, altså 0
             } else {
-                a = i + 1;
+                a = i + 1;                          // sett a til et element senere i listen
             }
-            imgBK.src = bildeListe[a][0];
-            imgBK.alt = bildeListe[a][1];
+            imgBK.src = bildeListe[a][0];           // Sett ny source til karusellen, altså bytt bildet
+            imgBK.alt = bildeListe[a][1];           // Sett tilsvarende alt tekst til bildet, som ligger i samme funksjon
         }
     }
     

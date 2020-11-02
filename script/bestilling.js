@@ -32,6 +32,9 @@ function dagensDato() {                         // Definerer funksjonen
     let year = n.getFullYear();                 // Henter ut kun året
     let date = n.getDate();                     // Henter ut kun dagens dato
     dato.min = year + "-" + minMonth + "-" + date;  // Setter året, måneden og datoen sammen, i samme format som input elementet dato trenger. Setter dette som minimum
+    if (date < 10) {                        // En if løkke som kjører hvis maks måned er under 10
+        date = ("0" + (date)).slice(-2);  // Legger til en 0 forran tallet hvis det ikke er tosifret tall. Dette må skje siden formatet til dato min og max er slik. 
+    }                                             // Kode hentet fra: https://l.facebook.com/l.php?u=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F6040515%2Fhow-do-i-get-month-and-date-of-javascript-in-2-digit-format%3Ffbclid%3DIwAR0OLd7E0XsYMDE12e8r9hno6bZFD8EBxUocPel5pHt0gPe9BXT1UiL58mI&h=AT2w0DCmrTI4D0wL2bDTFyGN3IS_3BVzy2iLab0VP3VMCHE0tq6I1Lc_FzNNXw_X4vSiUYS0IfmQP4sVtxACLDJ9REHhs4VizOWWM-94yGqoueb5k_4lv-Td7RsQimouXIoe_h1OFe5umlmRPT5OGA   
     let maxMonth = n.getMonth() + 5;            // Setter maks måned for 3 måneder fram i tid.
     if (maxMonth > 12) {                        // En if løkke, som kjører hvis maks måned er over 12. 
         maxMonth = maxMonth - 12;               // Setter maks måned det antall den er over 12. 
@@ -43,6 +46,7 @@ function dagensDato() {                         // Definerer funksjonen
     dato.max = year + "-" + maxMonth + "-" + date;  // Setter året, maks måned og datoen sammen, i samme format som input elementet dato trenger. Setter dette som maksimum
     datMax = dato.max;
     datMin = dato.min;
+    console.log(datMax, datMin, date);
 }
 dagensDato();  // Kjører funksjonen dagensDato()
 
@@ -78,76 +82,78 @@ function tidSjekk (i) {
 
 // Funksjonen sjekker om datoen er før, samme eller etter dagens dato
 function dagSjekk(dato) {
-    if (dato.value.slice(5, 7) === datMin.slice(5, 7)) {                // Hvis måned hentet fra dato er lik måned hentet fra input dato, kjør funksjon
+    if (dato.value.slice(5, 7) === datMin.slice(5, 7)) {                // Hvis måned hentet fra dagens dato er lik måned hentet fra input dato, kjør funksjon
         if (dato.value.slice(8, 10) < datMin.slice(8, 10)) {            // Hvis dag hentet fra dato er lik dato hentet fra input dato, kjør funksjon
             dato.setCustomValidity(false);                              // Sett gyldigheten til dato til false
         }
         else {
             console.log(dato.value.slice(8, 10), datMin.slice(8, 10));
-            dato.setCustomValidity("");
+            dato.setCustomValidity("");                                 // Sett gyldighet til dato til ingenting / true
         }
-    } else if (dato.value.slice(8, 10) > datMax.slice(8, 10)) {
-        if (dato.value.slice(5, 7) === datMax.slice(5, 7)) {
-            dato.setCustomValidity(false);
+    } else if (dato.value.slice(8, 10) > datMax.slice(8, 10)) {         // Hvis dag hentet ut fra dato input er større en dag hentet ut fra dato max, kjør funksjon
+        if (dato.value.slice(5, 7) === datMax.slice(5, 7)) {            // Hvis måned hentet ut fra dato input er lik måned hentet ut fra dato mac
+            dato.setCustomValidity(false);                              // Sett gyldigheten til dato til false
         }
         else {
-            dato.setCustomValidity("");
+            dato.setCustomValidity("");                                 // Sett gyldighet til dato til ingenting / true
         }
     } else {
+        dato.setCustomValidity("");                                     // Sett gyldighet til dato til ingenting / true
     }
 }
 
 function datoSjekk (i) {
-    if (listeSendInn[i][0] === "dato") {
-        let dato = document.getElementById("dato");
-        if ((dato.value.slice(0, 3) < datMin.slice(0, 3)) || (dato.value.slice(0, 3) < datMax.slice(0, 3))) {
-            dato.setCustomValidity(false);           
-        } else if (datMin.slice(5, 7) < datMax.slice(5, 7)) {
-            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) || (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
-                dato.setCustomValidity(false);
+    if (listeSendInn[i][0] === "dato") {                                // Hvis listen sitt output matcher "dato", kjør funksjon
+        let dato = document.getElementById("dato");                     // Henter inputfeltet dato fra html
+        if ((dato.value.slice(0, 4) < datMin.slice(0, 4)) || (dato.value.slice(0, 4) > datMax.slice(0, 4))) {       // Hvis årstall fra input er mindre enn årstall fra dato minimum, eller hvis årstall fra input er større en årstall fra dato max
+            dato.setCustomValidity(false);                              // Sett gyldigheten til dato til false
+        } else if (datMin.slice(5, 7) < datMax.slice(5, 7)) {           // Hvis måned fra dato minimum er mindre enn måned fra dato max, kjør funksjin
+            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) || (dato.value.slice(5, 7) > datMax.slice(5, 7))) {   // Hvis måned fra input er mindre enn måned fra dato minimum eller hvis måned fra input er større en måned fra dato max
+                dato.setCustomValidity(false);                          // Sett gyldigheten til dato til false
             } else {
-                dagSjekk(dato);
+                dagSjekk(dato);                                         // Kjør funksjon dagSjekk
             }
-        } else if (datMin.slice(5, 7) > datMax.slice(5, 7)) {
-            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) && (dato.value.slice(5, 7) > datMax.slice(5, 7))) {
-                dato.setCustomValidity(false);
+        } else if (datMin.slice(5, 7) > datMax.slice(5, 7)) {           // Hvis måned fra dato minimum er større en måned fra dato max
+            if ((dato.value.slice(5, 7) < datMin.slice(5, 7)) && (dato.value.slice(5, 7) > datMax.slice(5, 7))) {   // Hvis måned fra input er mindre enn måned fra dato minimum OG måned fra input er større en måned fra dato max
+                dato.setCustomValidity(false);                          // Sett gyldigheten til dato til false
             } else {
-                dagSjekk(dato);
+                dagSjekk(dato);                                         // Kjør funksjon dagSjekk
             }
         } else {
-            dato.setCustomValidity("");
+            dato.setCustomValidity("");                                 // Sett gyldighet til dato til ingenting / true
         }
     }
 }
 
+// Funksjon som sjekker inputelementene og sender en alert 
 function alertInput(event) {
-    event.preventDefault();
-    let skrivUt = ""; 
-    let feilMelding = "";
-    let oversikt = 0;
-    for (let i = 0; i < listeSendInn.length; i++) {
-        tidSjekk(i);
-        datoSjekk(i);
-        let element = document.getElementById(listeSendInn[i][0]);
-        skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element.value;
-        if (element.validity.valid === false) {
-            feilMelding += "\n" + listeSendInn[i][2];
-            oversikt += 1;
+    event.preventDefault();                                             // Et innebygd element i js, som hindrer at funksjonen kjører når man oppdaterer siden
+    let skrivUt = "";                                                   // Definerer variabelen skrivUt som en string og setter den til ingenting
+    let feilMelding = "";                                               // Definerer variabelen feilMelding som en string og setter den til ingenting
+    let oversikt = 0;                                                   // Definerer variabelen oversikt som et tall, og setter den til 0
+    for (let i = 0; i < listeSendInn.length; i++) {                     // En for-løkke som kjører gjennom listen listeSendInn
+        tidSjekk(i);                                                    // Kjører funksjonen tidSjekk og sender med variabelen i
+        datoSjekk(i);                                                   // Kjører funksjonen datoSjekk og sender med variabelen i
+        let element = document.getElementById(listeSendInn[i][0]);      // Definerer variabelen element med inputelementene i html ved hjelp av navn som den henter ut fra listen listeSendInn
+        skrivUt = skrivUt + "\n" + listeSendInn[i][1] + ": " + element.value;           // Setter skrivUt som seg selv pluss et linjeskift, navnet på inputfeltet og verdien som er satt inn i inputfeltet
+        if (element.validity.valid === false) {                         // Hvis elementet sin validitet er lik false, kjør funksjon
+            feilMelding += "\n" + listeSendInn[i][2];                   // Skriv til feilMelding et linjeskift, og feilmeldingen som tilhører elementet som ligger i listen listeSendInn
+            oversikt += 1;                                              // Legg til 1 på oversikt
         }
     }
-    if (oversikt === 0) {
-        let start = "Du har sendt inn en bordbestilling. Bestillingen inneholdt:";
-        let avslutning = "\nVi gleder oss til å se deg!";
-        alert(start + skrivUt + avslutning);
-        for (let i = 0; i < listeSendInn.length; i++) {
-            let element = document.getElementById(listeSendInn[i][0]);
-            element.value = "";
+    if (oversikt === 0) {                                               // Hvis oversikt er lik 0, kjør funksjon
+        let start = "Du har sendt inn en bordbestilling. Bestillingen inneholdt:";      // Definer variabelen start, og legg til en string
+        let avslutning = "\nVi gleder oss til å se deg!";               // Definer variabelen avslutning, og legg til en string
+        alert(start + skrivUt + avslutning);                            // Lag en alert som inneholder start, skrivUt og avslutning
+        for (let i = 0; i < listeSendInn.length; i++) {                 // En for-løkke som kjører gjennom listen listeSendInn
+            let element = document.getElementById(listeSendInn[i][0]);  // Definer variabelen element med inputelementet i html ved hjelp av navn som den henter ut fra listen listeSendInn
+            element.value = "";                                         // Sett elementet til tomt. Dette gjør at informasjonen som ligger i inputfeltet blir borte
         }
         
     } else {
-        let feilStart = "Du har fått denne feilmelding: ";
-        let feilAvslutt = "\nDu må rette opp i disse feilene før du sender bestillingen";
-        alert(feilStart + feilMelding + feilAvslutt);
+        let feilStart = "Du har fått denne feilmelding: ";              // Definer variabelen feilStart, og legg til en string 
+        let feilAvslutt = "\nDu må rette opp i disse feilene før du sender bestillingen";   // Definer variabelen feilAvslutt, og legg til en string 
+        alert(feilStart + feilMelding + feilAvslutt);                   // Lag en alert som inneholder feilStart, feilMelding, feilAvslutt
     }  
 }
 
