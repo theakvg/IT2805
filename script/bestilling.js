@@ -31,10 +31,10 @@ function dagensDato() {                         // Definerer funksjonen
     let minMonth = n.getMonth() + 1;            // Henter ut kun måneden fra n. Må legge til 1, da man får feil ellers. 
     let year = n.getFullYear();                 // Henter ut kun året
     let date = n.getDate();                     // Henter ut kun dagens dato
-    dato.min = year + "-" + minMonth + "-" + date;  // Setter året, måneden og datoen sammen, i samme format som input elementet dato trenger. Setter dette som minimum
     if (date < 10) {                        // En if løkke som kjører hvis maks måned er under 10
         date = ("0" + (date)).slice(-2);  // Legger til en 0 forran tallet hvis det ikke er tosifret tall. Dette må skje siden formatet til dato min og max er slik. 
     }                                             // Kode hentet fra: https://l.facebook.com/l.php?u=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F6040515%2Fhow-do-i-get-month-and-date-of-javascript-in-2-digit-format%3Ffbclid%3DIwAR0OLd7E0XsYMDE12e8r9hno6bZFD8EBxUocPel5pHt0gPe9BXT1UiL58mI&h=AT2w0DCmrTI4D0wL2bDTFyGN3IS_3BVzy2iLab0VP3VMCHE0tq6I1Lc_FzNNXw_X4vSiUYS0IfmQP4sVtxACLDJ9REHhs4VizOWWM-94yGqoueb5k_4lv-Td7RsQimouXIoe_h1OFe5umlmRPT5OGA   
+    dato.min = year + "-" + minMonth + "-" + date;  // Setter året, måneden og datoen sammen, i samme format som input elementet dato trenger. Setter dette som minimum
     let maxMonth = n.getMonth() + 5;            // Setter maks måned for 3 måneder fram i tid.
     if (maxMonth > 12) {                        // En if løkke, som kjører hvis maks måned er over 12. 
         maxMonth = maxMonth - 12;               // Setter maks måned det antall den er over 12. 
@@ -46,7 +46,7 @@ function dagensDato() {                         // Definerer funksjonen
     dato.max = year + "-" + maxMonth + "-" + date;  // Setter året, maks måned og datoen sammen, i samme format som input elementet dato trenger. Setter dette som maksimum
     datMax = dato.max;
     datMin = dato.min;
-    console.log(datMax, datMin, date);
+    console.log(datMax, datMin);
 }
 dagensDato();  // Kjører funksjonen dagensDato()
 
