@@ -49,37 +49,38 @@ dagensDato();  // Kjører funksjonen dagensDato()
 // Listen over alle inputelementene sitt id navn, oversiktsnavn og feilmelding
 const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og fire måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19. Det er heller ikke mulig å bestille tid for tidligere idag."], ["kommentarer", "Kommentarer"]];
 
-// Funksjon som 
+// Funksjon som sjekker om tiden er innenfor riktig ramme (mellom 11 og 19), og hvis det er dagens dato: om tiden satt i input feltet er etter den faktiske tiden
 function tidSjekk (i) {
-    if (listeSendInn[i][0] === "tidspunkt") {
-        let tidspunkt = document.getElementById("tidspunkt");
-        let dato = document.getElementById("dato");
-        let n = new Date();
-        let time = n.getHours();
-        let min = ("0" + (n.getMinutes())).slice(-2);
-        let a = tidspunkt.value;
-        if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {
-            tidspunkt.setCustomValidity(false);         
-        } else if ((a.slice(0, 2) < time) && (dato.value === datMin)) {
-            if (time === a.slice(0, 2)) {
-                if (a.slice(3, 5) < min) {
-                    tidspunkt.setCustomValidity(false);
+    if (listeSendInn[i][0] === "tidspunkt") {                       // Kjører gjennom alle elementene i listen listeSendInn
+        let tidspunkt = document.getElementById("tidspunkt");       // Henter inputfeltet tidspunkt fra html
+        let dato = document.getElementById("dato");                 // Henter inputfeltet dato fra html 
+        let n = new Date();                                         // Setter n som dagens dato, med en innebygd funksjon fra js som henter ut datoen pluss mer
+        let time = n.getHours();                                    // Henter ut kun timer fra n
+        let min = ("0" + (n.getMinutes())).slice(-2);               // Henter ut kun minutter, og legger til en 0 forran hvis tallet er under 10
+        let a = tidspunkt.value;                                    // Henter ut verdien som ligger i inputfeltet tidspunkt (altså tiden)
+        if ((a.slice(0, 2) < 11) || (a.slice(0, 2) >= 19)) {        // Hvis tiden hentet ut fra inputfeltet er mindre enn 11 og høyere enn 19, kjør funksjon
+            tidspunkt.setCustomValidity(false);                     // Sett gyldigheten til tidspunkt til false
+        } else if ((a.slice(0, 2) < time) && (dato.value === datMin)) {     // Hvis tiden hentet fra input er mindre en den faktiske tiden OG dagens dato er den samme som datoen i inputfeltet, kjør funksjon
+            if (time === a.slice(0, 2)) {                           // Hvis timen er lik timen fra input, kjør funksjon 
+                if (a.slice(3, 5) < min) {                          // Hvis minutter fra inputfeltet er mindre enn minutter fra den faktiske tiden, kjør funksjon
+                    tidspunkt.setCustomValidity(false);             // Sett gylidgheten til tidspunkt til false
                 } else {
-                    tidspunkt.setCustomValidity("");
+                    tidspunkt.setCustomValidity("");                // Sett gylidheten til tidspunkt til ingenting / true
                 }
             } else {
-                tidspunkt.setCustomValidity(false);
+                tidspunkt.setCustomValidity(false);                 // Sett gylidgheten til tidspunkt til false
             }
         } else {
-            tidspunkt.setCustomValidity("");
+            tidspunkt.setCustomValidity("");                        // Sett gylidheten til tidspunkt til ingenting / true
         }
     }
 }
 
+// Funksjonen sjekker om datoen er før, samme eller etter dagens dato
 function dagSjekk(dato) {
-    if (dato.value.slice(5, 7) === datMin.slice(5, 7)) {
-        if (dato.value.slice(8, 10) < datMin.slice(8, 10)) {
-            dato.setCustomValidity(false);
+    if (dato.value.slice(5, 7) === datMin.slice(5, 7)) {                // Hvis måned hentet fra dato er lik måned hentet fra input dato, kjør funksjon
+        if (dato.value.slice(8, 10) < datMin.slice(8, 10)) {            // Hvis dag hentet fra dato er lik dato hentet fra input dato, kjør funksjon
+            dato.setCustomValidity(false);                              // Sett gyldigheten til dato til false
         }
         else {
             console.log(dato.value.slice(8, 10), datMin.slice(8, 10));
