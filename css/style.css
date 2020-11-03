@@ -274,7 +274,7 @@ strong {
     height: 60vh;
     align-self: center;
     /* Bildene i bildekarusellen har 90% av opprinnelig brightness, slik at teksten over vises bedre*/
-    filter: brightness(90%);
+    filter: brightness(80%);
 }
 
 #bildeTekst1, #bildeTekst2 {
