@@ -504,20 +504,6 @@ input:hover, textarea:hover {
     line-height: 25px;
 }
 
-/* Legger til linje mellom seksjonene */
-@media only screen and (min-width: 800px){
-    #infoInnhold section:not(#sosialeMedia):after{
-        /* Nødvendig for at linjen skal lages*/
-        content: "";
-        display: block;
-        /* Linjen skal ha bredde tilsvarende 45% av bredden på siden */
-        width: 45%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-bottom: 3px solid #B2675E;
-    }
-}
-
 /* Former boksen kartet skal ligge inni */
 #mapsBoks {
     position: relative;
@@ -531,6 +517,20 @@ input:hover, textarea:hover {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+/* Legger til linje mellom seksjonene */
+@media only screen and (min-width: 800px){
+    #infoInnhold section:not(#sosialeMedia):after{
+        /* Nødvendig for at linjen skal lages*/
+        content: "";
+        display: block;
+        /* Linjen skal ha bredde tilsvarende 45% av bredden på siden */
+        width: 45%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #B2675E;
+    }
 }
 
 /* Justerer størrelsen på boksen etter bredden på nettsiden. Må bruke pixler for at kartet skal være interaktivt (det blir et bilde hvis ikke) */
