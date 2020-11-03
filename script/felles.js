@@ -3,9 +3,9 @@ const footerAll = '<div id="footerKontakt"><p><strong>Kontakt oss:</strong><br>4
  //  All html'en til header og footer elementene ligger inne i disse const'ene. Dette er fordi det ikke er mulig å dele html kode mellom flere sider utenom på denne måten. 
  //  Hvis denne skal forandres på, anbefales det å lime den inn i et html dokument, gjøre forandringene, og lime det inn igjen. 
  
-const sider = ["meny", "felles", "forside", "info", "bestilling"]; // liste med alle sidene, for alle header eller footer elemente skal hete header/footer + sidenavn. 
+const sider = ["meny", "felles", "forside", "info", "bestilling"]; // liste med alle sidene, for alle header eller footer elementene skal hete header/footer + sidenavn. 
 
-// FUnksjon som viser header og footer på alle sidene
+// Funksjon som viser header og footer på alle sidene
 function includeHTML() {        
     for (let i = 0; i < sider.length; i++) {    // sjekker antallet i listen "sider" og kjører gjennom hvert element. 
         let head = document.getElementById("header"+sider[i]);   // henter header elementet, hvor den får navnene fra listen sider, og gir den navnet head. Head får en ny verdi for hver "runde"
