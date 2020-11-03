@@ -274,7 +274,7 @@ strong {
     height: 60vh;
     align-self: center;
     /* Bildene i bildekarusellen har 90% av opprinnelig brightness, slik at teksten over vises bedre*/
-    filter: brightness(90%);
+    filter: brightness(80%);
 }
 
 #bildeTekst1, #bildeTekst2 {
@@ -412,7 +412,7 @@ strong {
     width: 40%;
     margin: 20px auto;
     border-radius: 20px;
-    background: #f3f3f3;
+    background: #F3F3F3;
 }
 #menyMain h2, h1{
     color: #B2675E;
