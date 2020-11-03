@@ -501,6 +501,7 @@ input:hover, textarea:hover {
 }
 #infoInnhold section {
     padding: 10px 0px;
+    line-height: 25px;
 }
 
 /* Legger til linje mellom seksjonene */
