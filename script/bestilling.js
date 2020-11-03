@@ -46,12 +46,11 @@ function dagensDato() {                         // Definerer funksjonen
     dato.max = year + "-" + maxMonth + "-" + date;  // Setter året, maks måned og datoen sammen, i samme format som input elementet dato trenger. Setter dette som maksimum
     datMax = dato.max;
     datMin = dato.min;
-    console.log(datMax, datMin);
 }
 dagensDato();  // Kjører funksjonen dagensDato()
 
 // Listen over alle inputelementene sitt id navn, oversiktsnavn og feilmelding
-const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt"], ["mobil", "Mobil", "Fyll inn mobilnummeret"], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com"], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og fire måneder fram i tid"], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19. Det er heller ikke mulig å bestille tid for tidligere idag."], ["kommentarer", "Kommentarer"]];
+const listeSendInn = [["navn", "Navn", "Fyll inn navnet ditt."], ["mobil", "Mobil", "Fyll inn mobilnummeret."], ["email", "Email", "Fyll inn emailen din med riktig format: example@example.com."], ["antallBesokende", "Antall besøkende", "Antall besøkende må være mellom 1 og 10. Hvis dere er flere enn 10, vennligst ring kafeen for å booke."], ["dato", "Dato", "Du kan bare booke bord fra dagens dato og fire måneder fram i tid."], ["tidspunkt", "Tidspunkt", "Våre åpningstider er mellom 11.00 og 20.00, vennligst bestill bord til etter kl. 11 og før kl 19. Det er heller ikke mulig å bestille tid for tidligere idag."], ["kommentarer", "Kommentarer"]];
 
 // Funksjon som sjekker om tiden er innenfor riktig ramme (mellom 11 og 19), og hvis det er dagens dato: om tiden satt i input feltet er etter den faktiske tiden
 function tidSjekk (i) {
